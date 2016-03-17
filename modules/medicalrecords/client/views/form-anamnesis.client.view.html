@@ -1,0 +1,114 @@
+<section>
+  <div class="page-header">
+    <h1><small>{{vm.medicalrecord._id ? 'Rekam Medis' : 'Rekam Medis Baru'}}</small><br/>{{vm.medicalrecord.patient.name}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.medicalrecordForm" class="form-horizontal" ng-submit="vm.save(vm.form.medicalrecordForm.$valid)" novalidate>
+      <fieldset>
+        <legend>Anamnesa Pasien</legend>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="complaint">Keluhan Utama</label>
+          <div class="col-md-4">
+            <textarea id="complaint" name="complaint" ng-model="vm.medicalrecord.anamnesis.complaint" placeholder="Keluhan utama" class="form-control input-md" required></textarea>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.complaint.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan keluhan utama yang dirasakan oleh pasien</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="hocd">Riwayat keluhan</label>
+          <div class="col-md-4">
+            <textarea id="hocd" name="hocd" ng-model="vm.medicalrecord.anamnesis.hocd" placeholder="Riwayat penyakit yang dikeluhkan" class="form-control input-md"></textarea>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.hocd.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan riwayat penyakit yang dikeluhkan saat ini</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="bpm">Tensi</label>
+          <div class="col-md-4">
+            <div class="input-group col-md-8">
+            <input id="bpm" name="bpm" ng-model="vm.medicalrecord.anamnesis.bpm" type="number" class="form-control input-md" required/>
+            <span class="input-group-addon">MmHg</span>
+            </div>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.hocd.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Tensi</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="inhalation">Pernafasan</label>
+          <div class="col-md-4">
+            <div class="input-group col-md-8">
+              <input id="inhalation" name="inhalation" ng-model="vm.medicalrecord.anamnesis.inhalation" type="number" class="form-control input-md" required/>
+              <span class="input-group-addon">/Menit</span>
+            </div>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.inhalation.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Pernafasan</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="pulse">Nadi</label>
+          <div class="col-md-4">
+            <div class="input-group col-md-8">
+              <input id="pulse" name="pulse" ng-model="vm.medicalrecord.anamnesis.pulse" type="number" class="form-control input-md" required/>
+              <span class="input-group-addon">/Menit</span>
+            </div>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.pulse.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Denyut Nadi</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="temperature">Suhu</label>
+          <div class="col-md-4">
+            <div class="input-group col-md-8">
+              <input id="temperature" name="temperature" ng-model="vm.medicalrecord.anamnesis.temperature" type="number" class="form-control input-md" required/>
+              <span class="input-group-addon">ºC</span>
+            </div>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.temperature.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Suhu badan</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="bodyheight">Tinggi Badan</label>
+          <div class="col-md-4">
+            <div class="input-group col-md-8">
+              <input id="bodyheight" name="bodyheight" ng-model="vm.medicalrecord.anamnesis.bodyheight" type="number" class="form-control input-md"/>
+              <span class="input-group-addon">Cm</span>
+            </div>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.bodyheight.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Tinggi badan</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="bodyweight">Berat Badan</label>
+          <div class="col-md-4">
+            <div class="input-group col-md-8">
+              <input id="bodyweight" name="bodyweight" ng-model="vm.medicalrecord.anamnesis.bodyweight" type="number" class="form-control input-md"/>
+              <span class="input-group-addon">Kg</span>
+            </div>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.bodyweight.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Berat Badan</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-8">
+            <button type="submit" class="btn btn-primary">{{vm.medicalrecord._id ? 'Simpan' : 'Buat Rekam Medis'}}</button>
+            <a ng-if="vm.medicalrecord._id" ui-sref="medicalrecords.view({medicalrecordId:vm.medicalrecord._id})">
+              <button class="btn btn-danger">Batal</button>
+            </a>
+          </div>
+        </div>
+        <div ng-show="vm.error" class="text-danger text-center">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

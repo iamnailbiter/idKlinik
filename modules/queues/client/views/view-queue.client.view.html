@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1 class="text-center">{{ vm.state.current.name == 'queues.call' ? 'PANGGIL ANTRIAN' : 'CETAK ANTRIAN' }}</h1>
+  </div>
+  <div class="col-md-12 text-center" print-section>
+    <p>
+      <strong ng-if="vm.queue.clinic" ng-bind="vm.queue.clinic.name"></strong><br/>
+      <small><strong>{{vm.queueDirectionTargetMean}}</strong></small><br/>
+      Antrian untuk Bp/Ibu/Sdr :<br/>
+      {{vm.queue.patient.name}}
+    <h1 ng-bind="vm.queue.directionTarget.toUpperCase() + vm.queue.directionNumber"></h1>
+    {{vm.queue.directionCreated | date:'dd MMM yyyy hh:mm:ss'}}<br/>
+    <span ng-if="vm.state.current.name == 'queues.call'+vm.queue.directionTarget && vm.queue.directionHandled">Antrian telah ditangani oleh <br/>{{vm.queue.user.displayName}}</span>
+    <span ng-if="!vm.queue.directionHandled">Terima kasih anda telah tertib</span>
+    </p>
+  </div>
+  <div class="col-md-12 text-center">
+    <button class="btn btn-danger" ui-sref="queues.list"><i class="glyphicon glyphicon-arrow-left"> Kembali</i></button>
+    <button ng-if="vm.state.current.name == 'queues.print'" class="btn btn-primary" print-btn><i class="glyphicon glyphicon-print"></i> Cetak</button>
+    <button ng-if="vm.state.current.name == 'queues.call'+vm.queue.directionTarget && !vm.queue.directionHandled" class="btn btn-primary" ng-click="vm.handled()"><i class="glyphicon glyphicon-bell"></i> Tangani Pasien</button>
+  </div>
+</section>

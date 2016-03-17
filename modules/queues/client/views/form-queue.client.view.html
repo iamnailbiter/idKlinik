@@ -1,0 +1,81 @@
+<section>
+  <div class="page-header">
+    <h1 class="text-center">ANTRIAN {{vm.queue._id ? 'DOKTER / SPESIALIS' : 'MEDIS'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.queueForm" class="form-horizontal" ng-submit="vm.save(vm.form.queueForm.$valid)" novalidate>
+      <div class="col-md-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title text-center"><strong>SISA ANTRIAN</strong></div>
+          </div>
+          <div class="panel-body h1 text-center" ng-bind="vm.queuesTodayWaitingMD.length ? vm.queuesTodayWaitingMD.length : 0"></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title text-center"><strong>ANTRIAN SEDANG DITANGANI</strong></div>
+          </div>
+          <div class="panel-body h1 text-center" ng-bind="vm.queuesTodayLastestHandledMDDirection[0].number ? vm.queuesTodayLastestHandledMDDirection[0].target.toUpperCase()+vm.queuesTodayLastestHandledMDDirection[0].number : 0"></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title text-center"><strong>NOMOR ANTRIAN</strong></div>
+          </div>
+            <div class="panel-body h1 text-center" ng-bind="vm.queue._id ? vm.queuesTodayLastestHandledMDDirection[0].target.toUpperCase()+vm.queuesTodayLastestHandledMDDirection[0].number : 'MD'+vm.queuesNewEntryMD"></div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title text-center"><strong>DATA PASIEN</strong></div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <label class="col-md-6 text-right"><strong>Identitas</strong></label>
+                <div class="col-md-6">
+                  <label ng-bind="vm.patient.idcard_type + ' / ' + vm.patient.idcard_number | uppercase"></label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                  <label class="col-md-6 text-right"><strong>Nama</strong></label>
+                  <div class="col-md-6">
+                    <label ng-bind="vm.patient.name"></label>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <label class="col-md-4 text-right"><strong>Telepon</strong></label>
+                <div class="col-md-4">
+                  <label ng-bind="vm.patient.phone?vm.patient.phone:'-'"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="row form-group" show-errors>
+          <label class="col-md-4 text-right" for="directionNext"><strong>Poliklinik</strong></label>
+          <div class="col-md-4">
+            <select class="form-control" ng-model="vm.directionNext" id="directionNext" name="directionNext" required>
+              <option ng-if="vm.clinic.poly.indexOf(polyclinic.key) !== -1" ng-repeat="polyclinic in vm.polyclinics" value="{{polyclinic.target}}">{{polyclinic.mean}}</option>
+            </select>
+            <div ng-messages="vm.form.queueForm.directionNext.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Pilih poliklinik tujuan</p>
+            </div>
+          </div>
+        </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-success">Ambil Antrian</button>
+            <a ui-sref="patients.detail({patientId:vm.patient._id})">
+              <button class="btn btn-danger">Batal</button>
+            </a>
+          </div>
+      </div>
+    </form>
+  </div>
+</section>

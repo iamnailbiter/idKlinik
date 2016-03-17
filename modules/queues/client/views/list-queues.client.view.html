@@ -1,0 +1,77 @@
+<section>
+  <div class="page-header">
+    <h1>Daftar Antrian Pasien</h1>
+  </div>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading text-center">
+      <div class="btn-group">
+        <label class="btn btn-danger" ng-model="vm.directionTarget" uib-btn-radio="''">Semua</label>
+        <label class="btn btn-primary" ng-model="vm.directionTarget" uib-btn-radio="'cs'">CS</label>
+        <label class="btn btn-info"    ng-model="vm.directionTarget" uib-btn-radio="'md'">Medis</label>
+        <label class="btn btn-{{polyclinic.style}}" ng-repeat="polyclinic in vm.polyclinics" ng-model="vm.directionTarget" uib-btn-radio="'{{polyclinic.target}}'" ng-if="vm.clinic.poly.indexOf(polyclinic.key) !== -1" >
+          {{polyclinic.mean}}
+        </label>
+      </div>
+      <div class="input-group col-md-3 pull-left">
+        <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.queuesDateCreated" is-open="vm.bdPC.opened" max-date="vm.maxDate" datepicker-options="vm.dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="vm.altInputFormats"/>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="vm.openbdPC()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+      <div class="input-group col-md-3 pull-right">
+        <input type="text" class="form-control" placeholder="pencarian pasien" aria-describedby="basic-addon2" ng-model="vm.search" ng-change="vm.figureOutItemsToDisplay()">
+        <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+      </div>
+    </div>
+    <!-- Table -->
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Nama</th>
+        <th>Jenis Kelamin</th>
+        <th>Antrian</th>
+        <th>Nomor</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="queue in vm.pagedItems | filter: {created:vm.queuesDateCreated.toISOString().substring(0, 10)}| filter: { direction: {target:vm.directionTarget,handled:null}} | orderBy:'direction[0].number'">
+        <td ng-bind="$index+1"></td>
+        <td ng-bind="queue.patient.name"></td>
+        <td ng-bind="queue.patient.sex === 'pria'? 'Pria':'Wanita'"></td>
+        <td><span ng-repeat="direction in queue.direction | filter: { target:vm.directionTarget,handled:null }" ng-bind="direction.target.toUpperCase()"></span></td>
+        <td><span ng-repeat="direction in queue.direction | filter: { target:vm.directionTarget,handled:null }" ng-bind="direction.number"></span></td>
+        <td><span ng-repeat="direction in queue.direction | filter: { target:vm.directionTarget,handled:null }" ng-bind="direction.handled ? 'DITANGANI' :'MENUNGGU' "></span></td>
+        <td>
+          <div class="btn-group">
+            <a class="btn btn-sm btn-primary" ng-repeat="direction in queue.direction | filter: { target:vm.directionTarget,handled:null }" ng-if="!direction.handled" ui-sref="queues.call{{direction.target}}({ queueId: queue._id,queueDirectionId:direction._id })">
+              <i class="glyphicon glyphicon-bell"></i>
+            </a>
+            <a class="btn btn-sm btn-warning" ng-repeat="direction in queue.direction | filter: { target:vm.directionTarget,handled:null }" ng-if="vm.queue.medicalrecord&&direction.handled" ui-sref="medicalrecords.view({medicalrecordId: queue.medicalrecord})">
+              <i class="glyphicon glyphicon glyphicon-stats"></i>
+            </a>
+            <a class="btn btn-sm btn-info" ng-repeat="direction in queue.direction | filter: { target:vm.directionTarget,handled:null }" ui-sref="queues.print({ queueId: queue._id,queueDirectionId:direction._id })">
+              <i class="glyphicon glyphicon-print"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr ng-if="vm.patients.$resolved && !vm.patients.length">
+        <td colspan="7" class="alert alert-warning text-center">
+          Tidak ada pasien terdaftar, silahkan mendaftarkan pasien <a ui-sref="patients.register">disini</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="7">
+          <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>

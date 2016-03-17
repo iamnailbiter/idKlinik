@@ -1,0 +1,120 @@
+<section>
+  <div class="page-header">
+    <h5>Detail Pasien : <a href="#">{{vm.patient.name}}</a></h5>
+  </div>
+  <div class="col-md-12">
+    <div class="pull-right col-md-2 input-group">
+      <a class="btn btn-primary input-group-addon" ui-sref="patients.list">
+        <i class="glyphicon glyphicon-arrow-left"></i>
+      </a>
+      <a class="btn btn-info input-group-addon" ui-sref="queues.create({ patientId: vm.patient._id })">
+        <i class="glyphicon glyphicon-heart"></i>
+      </a>
+      <a class="btn btn-warning input-group-addon" ui-sref="patients.edit({ patientId: vm.patient._id })">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn btn-danger input-group-addon" ng-click="vm.remove()">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+    </div>
+    <div class="col-md-5">
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Terdaftar sejak</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.registered | date:'dd MMM yyyy'"></label>
+      </div>
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Identitas</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.idcard_type + ' / ' + vm.patient.idcard_number | uppercase"></label>
+      </div>
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Tempat / Tgl Lahir</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.birthplace + ' / ' + (vm.patient.birthdate | date:'dd MMM yyyy')"></label>
+      </div>
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Jenis Kelamin</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.sex === 'pria'? 'Pria':'Wanita'"></label>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Alamat</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.address"></label>
+      </div>
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Domisili</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.domicile"></label>
+      </div>
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Pekerjaan</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.job"></label>
+      </div>
+      <div class="row">
+        <label class="col-md-4 text-right"><strong>Nomor Telepon</strong></label>
+        <label class="col-md-8" ng-bind="vm.patient.phone"></label>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="panel panel-info">
+      <!-- Default panel contents -->
+      <div class="panel-heading pull-right col-md-12">
+        <div class="row">
+          <h3 class="panel-title col-md-12"><i class="glyphicon glyphicon-book"></i> Daftar Riwayat Perawatan dan Pemeriksaan Pasien</h3>
+        </div>
+        <div style="height: 10px"></div>
+        <div class="row">
+          <div class="col-md-9">
+            <a class="btn btn-sm btn-primary" ui-sref="medicalrecords.create({ patientId:vm.patient._id })" ><i class="glyphicon glyphicon-plus"></i> Rekam Medis</a>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <input type="text" class="form-control input-sm" placeholder="cari rekam medis" aria-describedby="basic-addon2" ng-model="vm.search" ng-change="vm.figureOutItemsToDisplay()">
+              <span class="input-group-addon input-sm" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Table -->
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Pukul</th>
+          <th>Keluhan</th>
+          <th>Diagnosa</th>
+          <th>Terapi</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-if="vm.medicalrecords" ng-repeat="medicalrecord in vm.pagedItems | orderBy:'-created'">
+          <td ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
+          <td ng-bind="medicalrecord.created | date:'H:m' "></td>
+          <td ng-bind="medicalrecord.anamnesis.complaint" class="small"></td>
+          <td ng-bind="medicalrecord.diagnosis.clinical" class="small"></td>
+          <td ng-bind="medicalrecord.diagnosis.therapy" class="small">></td>
+          <td>
+            <div class="btn-group">
+              <a class="btn btn-sm btn-info" ui-sref="medicalrecords.view({medicalrecordId:medicalrecord._id})">
+                <i class="glyphicon glyphicon-eye-open"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr ng-if="vm.medicalrecords.length==0">
+          <td colspan="8" class="alert alert-warning text-center">
+            Tidak ada riwayat medis, lakukan pemeriksaan medis pasien <a ui-sref="queues.create({ patientId: vm.patient._id })">disini</a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="8">
+            <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

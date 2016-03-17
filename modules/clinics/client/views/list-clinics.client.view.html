@@ -1,0 +1,63 @@
+<section>
+  <div class="page-header">
+    <h1>Daftar Klinik</h1>
+  </div>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <button type="button" class="btn btn-primary" ui-sref="clinics.create">
+        <span class="glyphicon glyphicon-plus"></span><strong> Klinik</strong>
+      </button>
+      <div class="input-group col-md-3 pull-right">
+        <input type="text" class="form-control" placeholder="pencarian klinik" aria-describedby="basic-addon2" ng-model="vm.search" ng-change="vm.figureOutItemsToDisplay()">
+        <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+      </div>
+    </div>
+    <!-- Table -->
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Klinik</th>
+        <th>Kota</th>
+        <th>No. Telp</th>
+        <th>Fax</th>
+        <th>Tipe</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="clinic in vm.pagedItems | orderBy:'name'">
+        <td ng-bind="$index+1"></td>
+        <td ng-bind="clinic.name"></td>
+        <td ng-bind="clinic.city"></td>
+        <td ng-bind="clinic.phone"></td>
+        <td ng-bind="clinic.fax"></td>
+        <td ng-bind="clinic.type"></td>
+        <td>
+          <div class="btn-group">
+            <a class="btn btn-sm btn-info" ui-sref="clinics.view({ clinicId: clinic._id })">
+              <i class="glyphicon glyphicon-eye-open"></i>
+            </a>
+            <a class="btn btn-sm btn-warning" ui-sref="clinics.edit({ clinicId: clinic._id })">
+              <i class="glyphicon glyphicon-edit"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr ng-if="vm.clinics.$resolved && !vm.clinics.length">
+        <td colspan="7" class="alert alert-warning text-center">
+          Tidak ada klinik tersedia, silahkan tambahkan klinik <a ui-sref="clinics.create">disini</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="7">
+          <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>

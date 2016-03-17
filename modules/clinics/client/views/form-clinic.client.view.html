@@ -1,0 +1,83 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.clinic._id ? 'Ubah Data Klinik' : 'Tambah Klinik Baru'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.clinicForm" class="form-horizontal" ng-submit="vm.save(vm.form.clinicForm.$valid)" novalidate>
+      <fieldset>
+        <legend>Data Klinik</legend>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="name">Nama Klinik</label>
+          <div class="col-md-4">
+            <input id="name" name="name" type="text" ng-model="vm.clinic.name" placeholder="Nama klinik" class="form-control input-md" required>
+          </div>
+          <div ng-messages="vm.form.clinicForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan nama klinik</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="poly">Poliklinik</label>
+          <div class="col-md-4" id="poly">
+            <label class="form-control" ng-repeat="polyclinic in polyclinics">
+              <input type="checkbox" checklist-model="vm.clinic.poly" checklist-value="polyclinic.key"> {{polyclinic.mean}}
+            </label>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="address">Alamat</label>
+          <div class="col-md-4">
+            <textarea class="form-control" id="address" name="address" data-ng-model="vm.clinic.address" placeholder="Alamat klinik" required></textarea>
+          </div>
+          <div ng-messages="vm.form.clinicForm.address.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan alamat klinik</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="province">Provinsi</label>
+          <div class="col-md-4">
+            <input id="province" name="province" type="text" ng-model="vm.clinic.province" placeholder="Provinsi" class="form-control input-md" required >
+          </div>
+          <div ng-messages="vm.form.clinicForm.province.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Provinsi klinik berada</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="city">Kota</label>
+          <div class="col-md-4">
+            <input id="city" name="city" type="text" ng-model="vm.clinic.city" placeholder="Kota" class="form-control input-md" required>
+          </div>
+          <div ng-messages="vm.form.clinicForm.city.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Kota klinik berada</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="phone">Nomor Telepon</label>
+          <div class="col-md-4">
+            <input id="phone" name="phone" type="text" ng-model="vm.clinic.phone" placeholder="Nomor Telepon" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="fax">Fax</label>
+          <div class="col-md-4">
+            <input id="fax" name="fax" type="text" ng-model="vm.clinic.fax" placeholder="Nomor Fax" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-8">
+            <button type="submit" class="btn btn-primary">{{vm.clinic._id ? 'Simpan' : 'Tambah Klinik'}}</button>
+            <a ng-show="vm.clinic._id" ui-sref="clinics.view({clinicId:vm.clinic._id})">
+              <button class="btn btn-danger">Batal</button>
+            </a>
+            <a ng-show="!vm.clinic._id" ui-sref="clinics.list">
+              <button class="btn btn-danger">Batal</button>
+            </a>
+          </div>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

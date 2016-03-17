@@ -1,0 +1,9 @@
+<section ng-controller="HomeController">
+  <div class="page-header">
+    <div class="jumbotron">
+      <h1>Sistem Informasi Klinik, Lab dan Apotek</h1>
+      <h1 ng-if="authentication.user" ng-bind="clinic.name"></h1>
+      <a ng-if="!authentication.user" class="btn btn-primary btn-large" ui-sref="authentication.signin">Sign In</a>
+    </div>
+  </div>
+</section>

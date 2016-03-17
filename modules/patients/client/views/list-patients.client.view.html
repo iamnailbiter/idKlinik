@@ -1,0 +1,63 @@
+<section>
+  <div class="page-header">
+        <h1>Daftar Pasien</h1>
+  </div>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <button type="button" class="btn btn-primary" ui-sref="patients.register">
+        <span class="glyphicon glyphicon-plus"></span><strong> Pasien</strong>
+      </button>
+      <div class="input-group col-md-3 pull-right">
+        <input type="text" class="form-control" placeholder="pencarian pasien" aria-describedby="basic-addon2" ng-model="vm.search" ng-change="vm.figureOutItemsToDisplay()">
+        <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+      </div>
+    </div>
+    <!-- Table -->
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Nama</th>
+        <th>Jenis Kelamin</th>
+        <th>Umur</th>
+        <th>Domisili</th>
+        <th>No. Telp</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="patient in vm.pagedItems | orderBy:'-registered'">
+        <td ng-bind="$index+1"></td>
+        <td ng-bind="patient.name"></td>
+        <td ng-bind="patient.sex === 'pria'? 'Pria':'Wanita'"></td>
+        <td ng-bind="vm.calculateAge(patient.birthdate)"></td>
+        <td ng-bind="patient.domicile"></td>
+        <td ng-bind="patient.phone"></td>
+        <td>
+          <div class="btn-group">
+            <a class="btn btn-sm btn-info" ui-sref="patients.detail({ patientId: patient._id })">
+              <i class="glyphicon glyphicon-eye-open"></i>
+            </a>
+            <a class="btn btn-sm btn-warning" ui-sref="patients.edit({ patientId: patient._id })">
+              <i class="glyphicon glyphicon-edit"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr ng-if="vm.patients.$resolved && !vm.patients.length">
+        <td colspan="7" class="alert alert-warning text-center">
+        Tidak ada pasien terdaftar, silahkan mendaftarkan pasien <a ui-sref="patients.register">disini</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="7">
+          <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>

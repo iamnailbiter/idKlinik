@@ -1,0 +1,127 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.patient._id ? 'Ubah Data Pasien' : 'Pendaftaran Pasien Baru'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.patientForm" class="form-horizontal" ng-submit="vm.save(vm.form.patientForm.$valid)" novalidate>
+      <fieldset>
+        <legend>Identitas Pasien</legend>
+        <div class="form-group" show-errors="">
+          <label class="col-md-4 control-label" for="idcard_type">Jenis Identitas</label>
+          <div class="col-md-4">
+            <select id="idcard_type" name="idcard_type" ng-model="vm.patient.idcard_type" class="form-control" required>
+              <option value="ktp">KTP</option>
+              <option value="sim">SIM</option>
+              <option value="paspor">Paspor</option>
+              <option value="visa">Visa</option>
+              <option value="pelajar">Kartu Pelajar</option>
+              <option value="mahasiswa">Kartu Mahasiswa</option>
+            </select>
+          </div>
+          <div ng-messages="vm.form.patientForm.idcard_type.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Pilih tipe identitas yang digunakan</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="idcard_number">Nomor Kartu Identitas</label>
+          <div class="col-md-4">
+            <input id="idcard_number" name="idcard_number" type="text" ng-model="vm.patient.idcard_number" placeholder="Nomor Kartu Identitas" class="form-control input-md" required>
+          </div>
+          <div ng-messages="vm.form.patientForm.idcard_number.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan nomor kartu identitas yang sesuai dengan jenis identitas</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="name">Nama</label>
+          <div class="col-md-4">
+            <input id="name" name="name" type="text" ng-model="vm.patient.name" placeholder="Nama lengkap pasien" class="form-control input-md" required>
+          </div>
+          <div ng-messages="vm.form.patientForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan nama lengkap pasien</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="birthplace">Tempat Lahir</label>
+          <div class="col-md-4">
+            <input id="birthplace" name="birthplace" type="text" ng-model="vm.patient.birthplace" placeholder="Tempat lahir" class="form-control input-md" required>
+          </div>
+          <div ng-messages="vm.form.patientForm.birthplace.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Tempat lahir harus diisi</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-4 control-label" for="birthdate">Tanggal Lahir</label>
+          <div class="col-md-4">
+            <p class="input-group">
+              <input id="birthdate" name="birthdate" type="text" class="form-control input-md" uib-datepicker-popup="{{vm.format}}" ng-model="vm.patient.birthdate" is-open="vm.bdPC.opened" max-date="vm.maxDate" datepicker-options="vm.dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="vm.altInputFormats" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="vm.openbdPC()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+          </div>
+          <div ng-messages="vm.form.patientForm.birthplace.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Tanggal lahir harus diisi</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors="">
+          <label class="col-md-4 control-label" for="sex">Jenis Kelamin</label>
+          <div class="col-md-4">
+            <select id="sex" name="sex" ng-model="vm.patient.sex" class="form-control" required>
+              <option value="pria">Pria</option>
+              <option value="wanita">Wanita</option>
+            </select>
+          </div>
+          <div ng-messages="vm.form.patientForm.sex.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Jenis kelamin harus diisi</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors="">
+          <label class="col-md-4 control-label" for="address">Alamat</label>
+          <div class="col-md-4">
+            <textarea class="form-control" id="address" name="address" data-ng-model="vm.patient.address" placeholder="Alamat pasien" required></textarea>
+          </div>
+          <div ng-messages="vm.form.patientForm.address.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan alamat tinggal pasien</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors="">
+          <label class="col-md-4 control-label" for="domicile">Domisili</label>
+          <div class="col-md-4">
+            <input id="domicile" name="domicile" type="text" ng-model="vm.patient.domicile" placeholder="Kota Domisili" class="form-control input-md" required >
+          </div>
+          <div ng-messages="vm.form.patientForm.domicile.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Isi dengan kota domisili pasien</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="job">Pekerjaan</label>
+          <div class="col-md-4">
+            <input id="job" name="job" type="text" ng-model="vm.patient.job" placeholder="Pekerjaan" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="phone">Nomor Telepon</label>
+          <div class="col-md-4">
+            <input id="phone" name="phone" type="text" ng-model="vm.patient.phone" placeholder="Nomor Telepon" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-8">
+            <button type="submit" class="btn btn-primary">{{vm.patient._id ? 'Simpan' : 'Daftarkan Pasien'}}</button>
+            <a ng-show="vm.patient._id" ui-sref="patients.detail({patientId:vm.patient._id})">
+              <button class="btn btn-danger">Batal</button>
+            </a>
+            <a ng-show="!vm.patient._id" ui-sref="patients.list">
+              <button class="btn btn-danger">Batal</button>
+            </a>
+          </div>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

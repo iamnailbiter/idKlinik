@@ -1,0 +1,262 @@
+<section>
+  <div class="page-header">
+    <h5>Rekam Medis Pasien : <a href="#">{{vm.medicalrecord.patient.name}}</a></h5>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-5">
+        <div class="row">
+          <label class="col-md-4 text-right"><strong>Tanggal</strong></label>
+          <label class="col-md-8" ng-bind="vm.medicalrecord.created | date:'dd MMM yyyy'"></label>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="row">
+          <label class="col-md-4 text-right"><strong>Petugas Medis</strong></label>
+          <label class="col-md-8" ng-bind="vm.medicalrecord.medic.displayName"></label>
+        </div>
+        <div class="row">
+          <label class="col-md-4 text-right"><strong>Dokter</strong></label>
+          <label class="col-md-8" ng-bind="vm.medicalrecord.doctor.displayName"></label>
+        </div>
+      </div>
+      <div class="col-md-2 input-group">
+        <a class="btn btn-primary input-group-addon" ui-sref="patients.detail({patientId:vm.medicalrecord.patient._id})">
+          <i class="glyphicon glyphicon-arrow-left"></i> Kembali
+        </a>
+      </div>
+    </div>
+  </div>
+  <div style="height: 10px"></div>
+  <uib-tabset active="active">
+    <uib-tab index="0">
+      <uib-tab-heading>
+        <strong>Anamnesa</strong>
+      </uib-tab-heading>
+      <h6>Data Anamnesa Pasien</h6>
+      <div class="col-md-11">
+        <div ng-if="vm.medicalrecord.anamnesis">
+          <div class="col-md-6">
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Keluhan Utama</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.complaint"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Riwayat keluhan</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.hocd"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Tensi</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bpm+' MmHg'"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Pernafasan</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.inhalation+' /Menit'"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Nadi</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.pulse+' /Menit'"></label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Suhu</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.temperature+' ºC'"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Tinggi Badan</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bodyheight+' Cm'"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Berat Badan</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bodyweight+' Kg'"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 input-group">
+        <a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.anamnesis({medicalrecordId:vm.medicalrecord._id})">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+      </div>
+    </uib-tab>
+    <uib-tab index="1">
+      <uib-tab-heading>
+        <strong>Pemeriksaan Fisik</strong>
+      </uib-tab-heading>
+      <div class="row">
+        <div class="col-md-4">
+          <h6>Status Interne</h6>
+          <div class="col-md-10">
+            <div ng-if="vm.medicalrecord.internus">
+              <div class="row">
+                <label class="col-md-4 text-right"><strong>COR</strong></label>
+                <label class="col-md-8" ng-bind="vm.medicalrecord.internus.cor"></label>
+              </div>
+              <div class="row">
+                <label class="col-md-4 text-right"><strong>ABD</strong></label>
+                <label class="col-md-8" ng-bind="vm.medicalrecord.internus.abd"></label>
+              </div>
+              <div class="row">
+                <label class="col-md-4 text-right"><strong>PULMO</strong></label>
+                <label class="col-md-8" ng-bind="vm.medicalrecord.internus.pulmo"></label>
+              </div>
+              <div class="row">
+                <label class="col-md-4 text-right"><strong>HEPAR</strong></label>
+                <label class="col-md-8" ng-bind="vm.medicalrecord.internus.hepar"></label>
+              </div>
+              <div class="row">
+                <label class="col-md-4 text-right"><strong>LIEN</strong></label>
+                <label class="col-md-8" ng-bind="vm.medicalrecord.internus.lien"></label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 input-group">
+            <a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.internus({medicalrecordId:vm.medicalrecord._id})">
+              <i class="glyphicon glyphicon-edit"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h6>Status Neurologikal</h6>
+          <div class="col-md-11">
+            <div ng-if="vm.medicalrecord.neurologic">
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>Kesadaran CGS</strong></label>
+                <label class="col-md-2" ng-bind="vm.medicalrecord.neurologic.cgs"></label>
+              </div>
+              <div class="row">
+                <label class="col-md-2 text-right"><strong>M.S</strong></label>
+                <label class="col-md-1 text-right"><strong>KK</strong></label>
+                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.ms.kk"></label>
+                <label class="col-md-2 text-right"><strong>BR I</strong></label>
+                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.ms.br1"></label>
+                <label class="col-md-2 text-right"><strong>BR II</strong></label>
+                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.ms.br2"></label>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>NN. Cranialis</strong></label>
+                <label class="col-md-9" ng-bind="vm.medicalrecord.neurologic.nnc"></label>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>Motorik</strong></label>
+                <table class="col-md-2 text-center" border="1">
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.a"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.b"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.c"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.d"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>Sensorik</strong></label>
+                <label class="col-md-3" ng-bind="vm.medicalrecord.neurologic.sensory.val.toUpperCase()"></label>
+                <table class="col-md-2 text-center" border="1">
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.a"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.b"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.c"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.d"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>RF</strong></label>
+                <table class="col-md-2 text-center" border="1">
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.a"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.b"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.c"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.d"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>Otonom</strong></label>
+                <label class="col-md-2" ng-bind="vm.medicalrecord.neurologic.autonomous"></label>
+                <label class="col-md-1 text-right"><strong>CV</strong></label>
+                <label class="col-md-6" ng-bind="vm.medicalrecord.neurologic.cv"></label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1 input-group">
+            <a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.neurologic({medicalrecordId:vm.medicalrecord._id})">
+              <i class="glyphicon glyphicon-edit"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+    <uib-tab index="2">
+      <uib-tab-heading>
+        <strong>Diagnosis</strong>
+      </uib-tab-heading>
+      <h6>Data Diagnosis</h6>
+      <div class="col-md-11">
+        <div ng-if="vm.medicalrecord.diagnosis">
+          <div class="col-md-12">
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Klinis</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.diagnosis.clinical"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Topis</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.diagnosis.topical"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Etio</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.diagnosis.etiological"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Terapy</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.diagnosis.therapy"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Rencana Pemeriksaan / Kontrol</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.diagnosis.control"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 input-group">
+        <a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.diagnosis({medicalrecordId:vm.medicalrecord._id})">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+      </div>
+    </uib-tab>
+    <uib-tab index="3">
+      <uib-tab-heading>
+        <strong>SOAP</strong>
+      </uib-tab-heading>
+      <h6>SOAP Pasien</h6>
+      <div class="col-md-11">
+        <div ng-if="vm.medicalrecord.soap">
+          <div class="col-md-12">
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Subjektif</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.subjective"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Objektif</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.objective"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Penilaian</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.assessment"></label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 text-right"><strong>Perencanaan</strong></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.plan"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 input-group">
+        <a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+      </div>
+    </uib-tab>
+  </uib-tabset>
+</section>
