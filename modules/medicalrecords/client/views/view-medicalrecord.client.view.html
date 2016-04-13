@@ -47,7 +47,7 @@
             </div>
             <div class="row">
               <label class="col-md-4 text-right"><strong>Tensi</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bpm+' MmHg'"></label>
+              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bpm.up+' / '+ vm.medicalrecord.anamnesis.bpm.down+' MmHg'"></label>
             </div>
             <div class="row">
               <label class="col-md-4 text-right"><strong>Pernafasan</strong></label>
@@ -152,7 +152,7 @@
               <div class="row">
                 <label class="col-md-3 text-right"><strong>Sensorik</strong></label>
                 <label class="col-md-3" ng-bind="vm.medicalrecord.neurologic.sensory.val.toUpperCase()"></label>
-                <table class="col-md-2 text-center" border="1">
+                <table ng-show="vm.medicalrecord.neurologic.sensory.a" class="col-md-2 text-center" border="1">
                   <tr>
                     <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.a"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.b"></td>
                   </tr>
@@ -162,16 +162,47 @@
                 </table>
               </div>
               <div class="row">
-                <label class="col-md-3 text-right"><strong>RF</strong></label>
+                <label class="col-md-3 text-right"><strong>BPR</strong></label>
                 <table class="col-md-2 text-center" border="1">
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.a"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.b"></td>
-                  </tr>
-                  <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.c"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.rf.d"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.bpr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.bpr.right"></td>
                   </tr>
                 </table>
               </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>TRR</strong></label>
+                <table class="col-md-2 text-center" border="1">
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.trr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.trr.right"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>KPR</strong></label>
+                <table class="col-md-2 text-center" border="1">
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.kpr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.kpr.right"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>APR</strong></label>
+                <table class="col-md-2 text-center" border="1">
+                  <tr>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.apr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.apr.right"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="row">
+                <label class="col-md-3 text-right"><strong>RP</strong></label>
+                <label class="col-md-1 text-center">HT</label>
+                <label class="col-md-1 text-center"><strong>{{vm.medicalrecord.neurologic.rp.ht}}</strong></label>
+              </div>
+              <div class="row">
+                <label class="col-md-offset-3 col-md-1 text-center">BAB</label>
+                <label class="col-md-1 text-center"><strong>{{vm.medicalrecord.neurologic.rp.bab}}</strong></label>
+              </div>
+
               <div class="row">
                 <label class="col-md-3 text-right"><strong>Otonom</strong></label>
                 <label class="col-md-2" ng-bind="vm.medicalrecord.neurologic.autonomous"></label>

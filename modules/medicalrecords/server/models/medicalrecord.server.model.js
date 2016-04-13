@@ -20,8 +20,14 @@ var AnamnesisSchema = new Schema({
         default: ''
     },
     bpm: {                              // Blood Pressure Monitor
-        type: Number,
-        default: ''
+        up: {
+            type: Number,
+            default: ''
+        },
+        down: {
+            type: Number,
+            default: ''
+        }
     },
     inhalation: {
         type: Number,
@@ -137,39 +143,71 @@ var NeurologicSchema = new Schema({
             default: ''
         }
     },
-    rf: {
-        a: {
+    // rf: {
+    //     a: {
+    //         type: Number,
+    //         default: ''
+    //     },
+    //     b: {
+    //         type: Number,
+    //         default: ''
+    //     },
+    //     c: {
+    //         type: Number,
+    //         default: ''
+    //     },
+    //     d: {
+    //         type: Number,
+    //         default: ''
+    //     }
+    // },
+    bpr: {
+        left: {
             type: Number,
             default: ''
         },
-        b: {
+        right: {
+            type: Number,
+            default: ''
+        }
+    },
+    trr: {
+        left: {
             type: Number,
             default: ''
         },
-        c: {
+        right: {
+            type: Number,
+            default: ''
+        }
+    },
+    kpr: {
+        left: {
             type: Number,
             default: ''
         },
-        d: {
+        right: {
+            type: Number,
+            default: ''
+        }
+    },
+    apr: {
+        left: {
+            type: Number,
+            default: ''
+        },
+        right: {
             type: Number,
             default: ''
         }
     },
     rp: {
-        a: {
-            type: Number,
+        ht: {
+            type: String,
             default: ''
         },
-        b: {
-            type: Number,
-            default: ''
-        },
-        c: {
-            type: Number,
-            default: ''
-        },
-        d: {
-            type: Number,
+        bab: {
+            type: String,
             default: ''
         }
     },

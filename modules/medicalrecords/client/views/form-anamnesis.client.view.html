@@ -7,7 +7,7 @@
       <fieldset>
         <legend>Anamnesa Pasien</legend>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="complaint">Keluhan Utama</label>
+          <label class="col-md-2 col-md-offset-2" for="complaint">Keluhan Utama</label>
           <div class="col-md-4">
             <textarea id="complaint" name="complaint" ng-model="vm.medicalrecord.anamnesis.complaint" placeholder="Keluhan utama" class="form-control input-md" required></textarea>
           </div>
@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="hocd">Riwayat keluhan</label>
+          <label class="col-md-2 col-md-offset-2" for="hocd">Riwayat keluhan</label>
           <div class="col-md-4">
             <textarea id="hocd" name="hocd" ng-model="vm.medicalrecord.anamnesis.hocd" placeholder="Riwayat penyakit yang dikeluhkan" class="form-control input-md"></textarea>
           </div>
@@ -25,19 +25,21 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="bpm">Tensi</label>
-          <div class="col-md-4">
+          <label class="col-md-2 col-md-offset-2" for="bpm.up">Tensi</label>
+          <div class="col-md-5">
             <div class="input-group col-md-8">
-            <input id="bpm" name="bpm" ng-model="vm.medicalrecord.anamnesis.bpm" type="number" class="form-control input-md" required/>
+            <input id="bpm.up" name="bpm.up" ng-model="vm.medicalrecord.anamnesis.bpm.up" type="number" class="form-control input-md" required/>
+            <span class="input-group-addon">/</span>
+            <input id="bpm.down" name="bpm.down" ng-model="vm.medicalrecord.anamnesis.bpm.down" type="number" class="form-control input-md" required/>
             <span class="input-group-addon">MmHg</span>
             </div>
           </div>
-          <div ng-messages="vm.form.medicalrecordForm.anamnesis.hocd.$error" role="alert">
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.bpm.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Tensi</p>
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="inhalation">Pernafasan</label>
+          <label class="col-md-2 col-md-offset-2" for="inhalation">Pernafasan</label>
           <div class="col-md-4">
             <div class="input-group col-md-8">
               <input id="inhalation" name="inhalation" ng-model="vm.medicalrecord.anamnesis.inhalation" type="number" class="form-control input-md" required/>
@@ -49,7 +51,7 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="pulse">Nadi</label>
+          <label class="col-md-2 col-md-offset-2" for="pulse">Nadi</label>
           <div class="col-md-4">
             <div class="input-group col-md-8">
               <input id="pulse" name="pulse" ng-model="vm.medicalrecord.anamnesis.pulse" type="number" class="form-control input-md" required/>
@@ -61,7 +63,7 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="temperature">Suhu</label>
+          <label class="col-md-2 col-md-offset-2" for="temperature">Suhu</label>
           <div class="col-md-4">
             <div class="input-group col-md-8">
               <input id="temperature" name="temperature" ng-model="vm.medicalrecord.anamnesis.temperature" type="number" class="form-control input-md" required/>
@@ -73,7 +75,7 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="bodyheight">Tinggi Badan</label>
+          <label class="col-md-2 col-md-offset-2" for="bodyheight">Tinggi Badan</label>
           <div class="col-md-4">
             <div class="input-group col-md-8">
               <input id="bodyheight" name="bodyheight" ng-model="vm.medicalrecord.anamnesis.bodyheight" type="number" class="form-control input-md"/>
@@ -85,7 +87,7 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-4 control-label" for="bodyweight">Berat Badan</label>
+          <label class="col-md-2 col-md-offset-2" for="bodyweight">Berat Badan</label>
           <div class="col-md-4">
             <div class="input-group col-md-8">
               <input id="bodyweight" name="bodyweight" ng-model="vm.medicalrecord.anamnesis.bodyweight" type="number" class="form-control input-md"/>
