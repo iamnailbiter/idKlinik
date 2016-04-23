@@ -5,9 +5,9 @@
         .module('medicalrecords')
         .controller('MedicalRecordsController', MedicalRecordsController);
 
-    MedicalRecordsController.$inject = ['$scope', '$state', '$filter', 'medicalrecordResolve', 'Authentication'];
+    MedicalRecordsController.$inject = ['$scope', '$state', '$filter', 'medicalrecordResolve', 'Authentication', 'PatientMedicalRecordsService'];
 
-    function MedicalRecordsController($scope, $state, $filter, medicalrecord, Authentication) {
+    function MedicalRecordsController($scope, $state, $filter, medicalrecord, Authentication, PatientMedicalRecordsService) {
         var vm = this;
 
         vm.medicalrecord = medicalrecord;
@@ -16,6 +16,37 @@
         vm.form = {};
         vm.remove = remove;
         vm.save = save;
+
+        // *********************************************************************
+        PatientMedicalRecordsService.query({
+            patientId: vm.medicalrecord.patient._id
+        },function (data) {
+            vm.medicalrecords = data;
+            vm.buildPager();
+        });
+
+
+        vm.buildPager = function () {
+            vm.pagedItems = [];
+            vm.itemsPerPage = 15;
+            vm.currentPage = 1;
+            vm.figureOutItemsToDisplay();
+        };
+
+        vm.figureOutItemsToDisplay = function () {
+            vm.filteredItems = $filter('filter')(vm.medicalrecords, {
+                $: vm.search
+            });
+            vm.filterLength = vm.filteredItems.length;
+            var begin = ((vm.currentPage - 1) * vm.itemsPerPage);
+            var end = begin + vm.itemsPerPage;
+            vm.pagedItems = vm.filteredItems.slice(begin, end);
+        };
+
+        vm.pageChanged = function () {
+            vm.figureOutItemsToDisplay();
+        };
+        // *********************************************************************
 
         // Remove existing Medical Record
         function remove() {

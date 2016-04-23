@@ -260,34 +260,92 @@
       <uib-tab-heading>
         <strong>SOAP</strong>
       </uib-tab-heading>
-      <h6>SOAP Pasien</h6>
-      <div class="col-md-11">
-        <div ng-if="vm.medicalrecord.soap">
-          <div class="col-md-12">
+      <!--<h6>SOAP Pasien</h6>-->
+      <!--<div class="col-md-11">-->
+        <!--<div ng-if="vm.medicalrecord.soap">-->
+          <!--<div class="col-md-12">-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Subjektif</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.soap.subjective"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Objektif</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.soap.objective"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Penilaian</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.soap.assessment"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Perencanaan</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.soap.plan"></label>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <br/>
+      <div class="col-md-12">
+        <div class="panel panel-info">
+          <!-- Default panel contents -->
+          <div class="panel-heading pull-right col-md-12">
             <div class="row">
-              <label class="col-md-4 text-right"><strong>Subjektif</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.subjective"></label>
+              <h3 class="panel-title col-md-12"><i class="glyphicon glyphicon-book"></i> SOAP Pasien</h3>
             </div>
+            <div style="height: 10px"></div>
             <div class="row">
-              <label class="col-md-4 text-right"><strong>Objektif</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.objective"></label>
-            </div>
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Penilaian</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.assessment"></label>
-            </div>
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Perencanaan</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.soap.plan"></label>
+              <div class="col-md-9">
+                <a class="btn btn-sm btn-primary" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})" ><i class="glyphicon glyphicon-plus"></i> SOAP</a>
+              </div>
+              <div class="col-md-3">
+                <div class="input-group">
+                  <input type="text" class="form-control input-sm" placeholder="cari soap" aria-describedby="basic-addon2" ng-model="vm.search" ng-change="vm.figureOutItemsToDisplay()">
+                  <span class="input-group-addon input-sm" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- Table -->
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Pukul</th>
+              <th>Subjective</th>
+              <th>Objective</th>
+              <th>Assessment</th>
+              <th>Planning</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="vm.medicalrecords" ng-repeat="medicalrecord in vm.pagedItems | orderBy:'-created'">
+              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
+              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.created | date:'H:m' "></td>
+              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.subjective" class="small"></td>
+              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.objective" class="small"></td>
+              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.assessment" class="small"></td>
+              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.plan" class="small"></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr ng-if="vm.medicalrecords.length==0">
+              <td colspan="8" class="alert alert-warning text-center">
+                Tidak ada riwayat medis, lakukan pemeriksaan medis pasien <a ui-sref="queues.create({ patientId: vm.patient._id })">disini</a>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="8">
+                <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
         </div>
       </div>
-      <div class="col-md-1 input-group">
-        <a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-      </div>
+      <!--<div class="col-md-1 input-group">-->
+        <!--<a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})">-->
+          <!--<i class="glyphicon glyphicon-edit"></i>-->
+        <!--</a>-->
+      <!--</div>-->
     </uib-tab>
   </uib-tabset>
 </section>
