@@ -5,9 +5,9 @@
         .module('patients')
         .controller('PatientsController', PatientsController);
 
-    PatientsController.$inject = ['$scope', '$state','$filter', 'patientResolve', 'Authentication','PatientMedicalRecordsService','PatientsService'];
+    PatientsController.$inject = ['$scope', '$state', '$filter', 'patientResolve', 'Authentication', 'PatientMedicalRecordsService', 'MedicalRecordsService'];
 
-    function PatientsController($scope, $state, $filter, patient, Authentication,PatientMedicalRecordsService, PatientsService) {
+    function PatientsController($scope, $state, $filter, patient, Authentication,PatientMedicalRecordsService, MedicalRecordsService) {
         var vm = this;
 
         vm.patient = patient;
@@ -16,6 +16,7 @@
         vm.form = {};
         vm.remove = remove;
         vm.save = save;
+        vm.createMedicalRecord = createMedicalRecord;
 
         // List Patient's Medical Records
         if(vm.patient._id){
@@ -51,6 +52,21 @@
             vm.pageChanged = function () {
                 vm.figureOutItemsToDisplay();
             };
+        }
+
+        // Remove existing Patient
+        function createMedicalRecord() {
+            var medicalrecord = new MedicalRecordsService;
+            medicalrecord.patient = vm.patient._id;
+            medicalrecord.$save(mrSuccessCallback, mrErrorCallback);
+            function mrSuccessCallback(res) {
+                $state.go('medicalrecords.view', {
+                    medicalrecordId: res._id
+                });
+            }
+            function mrErrorCallback(res) {
+                vm.error = res.data.message;
+            }
         }
 
         // Remove existing Patient

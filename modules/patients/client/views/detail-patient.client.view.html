@@ -64,7 +64,8 @@
         <div style="height: 10px"></div>
         <div class="row">
           <div class="col-md-9">
-            <a class="btn btn-sm btn-primary" ui-sref="medicalrecords.create({ patientId:vm.patient._id })" ><i class="glyphicon glyphicon-plus"></i> Rekam Medis</a>
+            <!--<a class="btn btn-sm btn-primary" ui-sref="medicalrecords.create({ patientId:vm.patient._id })" ><i class="glyphicon glyphicon-plus"></i> Rekam Medis</a>-->
+            <a class="btn btn-sm btn-primary" ng-click="vm.createMedicalRecord()" ><i class="glyphicon glyphicon-plus"></i> Rekam Medis</a>
           </div>
           <div class="col-md-3">
             <div class="input-group">

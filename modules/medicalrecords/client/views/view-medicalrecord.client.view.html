@@ -33,51 +33,121 @@
       <uib-tab-heading>
         <strong>Anamnesa</strong>
       </uib-tab-heading>
-      <h6>Data Anamnesa Pasien</h6>
-      <div class="col-md-11">
-        <div ng-if="vm.medicalrecord.anamnesis">
-          <div class="col-md-6">
+      <!--<h6>Data Anamnesa Pasien</h6>-->
+      <!--<div class="col-md-11">-->
+        <!--<div ng-if="vm.medicalrecord.anamnesis">-->
+          <!--<div class="col-md-6">-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Keluhan Utama</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.complaint"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Riwayat keluhan</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.hocd"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Tensi</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bpm.up+' / '+ vm.medicalrecord.anamnesis.bpm.down+' MmHg'"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Pernafasan</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.inhalation+' /Menit'"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Nadi</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.pulse+' /Menit'"></label>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-5">-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Suhu</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.temperature+' ºC'"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Tinggi Badan</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bodyheight+' Cm'"></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-4 text-right"><strong>Berat Badan</strong></label>-->
+              <!--<label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bodyweight+' Kg'"></label>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-1 input-group">-->
+        <!--<a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.anamnesis({medicalrecordId:vm.medicalrecord._id})">-->
+          <!--<i class="glyphicon glyphicon-edit"></i>-->
+        <!--</a>-->
+      <!--</div>-->
+      <br/>
+      <div class="col-md-12">
+        <div class="panel panel-info">
+          <!-- Default panel contents -->
+          <div class="panel-heading pull-right col-md-12">
             <div class="row">
-              <label class="col-md-4 text-right"><strong>Keluhan Utama</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.complaint"></label>
+              <h3 class="panel-title col-md-12"><i class="glyphicon glyphicon-book"></i> Anamnesa Pasien</h3>
             </div>
+            <div style="height: 10px"></div>
             <div class="row">
-              <label class="col-md-4 text-right"><strong>Riwayat keluhan</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.hocd"></label>
-            </div>
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Tensi</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bpm.up+' / '+ vm.medicalrecord.anamnesis.bpm.down+' MmHg'"></label>
-            </div>
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Pernafasan</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.inhalation+' /Menit'"></label>
-            </div>
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Nadi</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.pulse+' /Menit'"></label>
+              <div class="col-md-9">
+                <a ng-if="!vm.medicalrecord.anamnesis" class="btn btn-sm btn-primary" ui-sref="medicalrecords.anamnesis({medicalrecordId:vm.medicalrecord._id})" ><i class="glyphicon glyphicon-plus"></i> Anamnesa</a>
+              </div>
+              <div class="col-md-3">
+                <div class="input-group">
+                  <input type="text" class="form-control input-sm" placeholder="cari anamnesa" aria-describedby="basic-addon2" ng-model="vm.search" ng-change="vm.figureOutItemsToDisplay()">
+                  <span class="input-group-addon input-sm" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-5">
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Suhu</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.temperature+' ºC'"></label>
-            </div>
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Tinggi Badan</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bodyheight+' Cm'"></label>
-            </div>
-            <div class="row">
-              <label class="col-md-4 text-right"><strong>Berat Badan</strong></label>
-              <label class="col-md-8" ng-bind="vm.medicalrecord.anamnesis.bodyweight+' Kg'"></label>
-            </div>
-          </div>
+          <!-- Table -->
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Pukul</th>
+              <th>Keluhan</th>
+              <th>Tensi</th>
+              <th>Pernafasan</th>
+              <th>Nadi</th>
+              <th>Suhu</th>
+              <th>Tinggi / Berat Badan</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="vm.medicalrecords" ng-repeat="medicalrecord in vm.pagedItems | filter:{anamnesis:{complaint:''}} |orderBy:'-created'">
+              <td ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
+              <td ng-bind="medicalrecord.created | date:'H:m' "></td>
+              <td ng-bind="medicalrecord.anamnesis.complaint" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.bpm.up+' / '+ vm.medicalrecord.anamnesis.bpm.down+' MmHg'" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.inhalation+' /Menit'" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.pulse+' /Menit'" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.temperature+' ºC'" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.bodyheight+' Cm / '+medicalrecord.anamnesis.bodyheight+' Kg'" class="small"></td>
+              <td>
+                <div ng-if="vm.medicalrecord._id === medicalrecord._id" class="btn-group">
+                  <a class="btn btn-sm btn-info" ui-sref="medicalrecords.anamnesis({medicalrecordId:medicalrecord._id})">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr ng-if="vm.medicalrecords.length==0">
+              <td colspan="9" class="alert alert-warning text-center">
+                Tidak ada riwayat medis, lakukan pemeriksaan medis pasien <a ui-sref="queues.create({ patientId: vm.patient._id })">disini</a>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="9">
+                <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
         </div>
-      </div>
-      <div class="col-md-1 input-group">
-        <a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.anamnesis({medicalrecordId:vm.medicalrecord._id})">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
       </div>
     </uib-tab>
     <uib-tab index="1">
@@ -283,6 +353,11 @@
           <!--</div>-->
         <!--</div>-->
       <!--</div>-->
+      <!--<div class="col-md-1 input-group">-->
+      <!--<a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})">-->
+      <!--<i class="glyphicon glyphicon-edit"></i>-->
+      <!--</a>-->
+      <!--</div>-->
       <br/>
       <div class="col-md-12">
         <div class="panel panel-info">
@@ -294,7 +369,7 @@
             <div style="height: 10px"></div>
             <div class="row">
               <div class="col-md-9">
-                <a class="btn btn-sm btn-primary" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})" ><i class="glyphicon glyphicon-plus"></i> SOAP</a>
+                <a ng-if="!vm.medicalrecord.soap" class="btn btn-sm btn-primary" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})" ><i class="glyphicon glyphicon-plus"></i> SOAP</a>
               </div>
               <div class="col-md-3">
                 <div class="input-group">
@@ -314,16 +389,24 @@
               <th>Objective</th>
               <th>Assessment</th>
               <th>Planning</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-if="vm.medicalrecords" ng-repeat="medicalrecord in vm.pagedItems | orderBy:'-created'">
-              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
-              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.created | date:'H:m' "></td>
-              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.subjective" class="small"></td>
-              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.objective" class="small"></td>
-              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.assessment" class="small"></td>
-              <td ng-if="medicalrecord.soap" ng-bind="medicalrecord.soap.plan" class="small"></td>
+            <tr ng-if="vm.medicalrecords" ng-repeat="medicalrecord in vm.pagedItems | filter:{soap:{subjective:''}} |orderBy:'-created'">
+              <td ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
+              <td ng-bind="medicalrecord.created | date:'H:m' "></td>
+              <td ng-bind="medicalrecord.soap.subjective" class="small"></td>
+              <td ng-bind="medicalrecord.soap.objective" class="small"></td>
+              <td ng-bind="medicalrecord.soap.assessment" class="small"></td>
+              <td ng-bind="medicalrecord.soap.plan" class="small"></td>
+              <td>
+                <div ng-if="vm.medicalrecord._id === medicalrecord._id" class="btn-group">
+                  <a class="btn btn-sm btn-info" ui-sref="medicalrecords.soap({medicalrecordId:medicalrecord._id})">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                  </a>
+                </div>
+              </td>
             </tr>
             </tbody>
             <tfoot>
@@ -341,11 +424,6 @@
           </table>
         </div>
       </div>
-      <!--<div class="col-md-1 input-group">-->
-        <!--<a class="btn btn-warning input-group-addon" ui-sref="medicalrecords.soap({medicalrecordId:vm.medicalrecord._id})">-->
-          <!--<i class="glyphicon glyphicon-edit"></i>-->
-        <!--</a>-->
-      <!--</div>-->
     </uib-tab>
   </uib-tabset>
 </section>
