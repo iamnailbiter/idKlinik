@@ -54,9 +54,9 @@
             };
         }
 
-        // Remove existing Patient
+        // Create new Medical Record
         function createMedicalRecord() {
-            var medicalrecord = new MedicalRecordsService;
+            var medicalrecord = new MedicalRecordsService();
             medicalrecord.patient = vm.patient._id;
             medicalrecord.$save(mrSuccessCallback, mrErrorCallback);
             function mrSuccessCallback(res) {

@@ -5,9 +5,9 @@
         .module('queues')
         .controller('QueuesController', QueuesController);
 
-    QueuesController.$inject = ['$scope', '$state', 'queueResolve', 'Authentication', '$filter'];
+    QueuesController.$inject = ['$scope', '$state', 'queueResolve', 'Authentication', '$filter', 'MedicalRecordsService'];
 
-    function QueuesController($scope, $state, queue, Authentication, $filter) {
+    function QueuesController($scope, $state, queue, Authentication, $filter, MedicalRecordsService) {
         var vm = this;
 
         vm.queue = queue;
@@ -18,6 +18,7 @@
         vm.remove = remove;
         vm.handled = handled;
         vm.save = save;
+        vm.createMedicalRecord = createMedicalRecord;
 
         angular.forEach(vm.queue.direction, function(value, key){
             if(value._id === $state.params.queueDirectionId){
@@ -54,11 +55,26 @@
                 vm.queue.$update(successHandleCallback, errorCallback);
             }
             function successHandleCallback(res) {
-                $state.go('medicalrecords.view', {
-                    medicalrecordId: res.medicalrecord
-                });
+                createMedicalRecord();
             }
             function errorCallback(res) {
+                vm.error = res.data.message;
+            }
+        }
+
+
+        // Create new Medical Record
+        function createMedicalRecord() {
+            var medicalrecord = new MedicalRecordsService();
+            medicalrecord.patient = vm.queue.patient._id;
+            medicalrecord.queue = vm.queue._id;
+            medicalrecord.$save(mrSuccessCallback, mrErrorCallback);
+            function mrSuccessCallback(res) {
+                $state.go('medicalrecords.view', {
+                    medicalrecordId: res._id
+                });
+            }
+            function mrErrorCallback(res) {
                 vm.error = res.data.message;
             }
         }
