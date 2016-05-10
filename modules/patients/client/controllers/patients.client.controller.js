@@ -102,9 +102,9 @@
         }
 
         // Date Picker Control for birthdate
-        vm.today = function() {
-            vm.patient.birthdate = new Date();
-        };
+        // vm.today = function() {
+        //     vm.patient.birthdate = new Date();
+        // };
 
         vm.dateOptions = {
             formatYear: 'yy',

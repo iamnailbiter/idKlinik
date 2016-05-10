@@ -20,7 +20,7 @@
     <div class="col-md-5">
       <div class="row">
         <label class="col-md-4 text-right"><strong>Terdaftar sejak</strong></label>
-        <label class="col-md-8" ng-bind="vm.patient.registered | date:'dd MMM yyyy'"></label>
+        <label class="col-md-8" ng-if="vm.patient.registered" ng-bind="vm.patient.registered | date:'dd MMM yyyy'"></label>
       </div>
       <div class="row">
         <label class="col-md-4 text-right"><strong>Identitas</strong></label>
