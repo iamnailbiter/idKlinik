@@ -31,7 +31,7 @@
         <td ng-bind="$index+1"></td>
         <td ng-bind="patient.name"></td>
         <td ng-bind="patient.sex === 'pria'? 'Pria':'Wanita'"></td>
-        <td ng-bind="patient.birthdate?vm.calculateAge(patient.birthdate):'-'"></td>
+        <td ng-if="patient.birthdate" ng-bind="vm.calculateAge(patient.birthdate)"></td>
         <td ng-bind="patient.domicile"></td>
         <td ng-bind="patient.phone"></td>
         <td>
