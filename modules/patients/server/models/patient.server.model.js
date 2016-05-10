@@ -52,7 +52,7 @@ var PatientSchema = new Schema({
     },
     birthdate: {
         type: Date,
-        default: Date.now(),
+        default: '',
         required: 'Tanggal lahir harus diisi'
     },
     sex:{
