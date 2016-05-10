@@ -17,7 +17,7 @@
     <table class="table table-hover">
       <thead>
       <tr>
-        <th>#</th>
+        <th>NO ID</th>
         <th>Nama</th>
         <th>Jenis Kelamin</th>
         <th>Umur</th>
@@ -28,7 +28,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="patient in vm.pagedItems | orderBy:'-registered'">
-        <td ng-bind="$index+1"></td>
+        <td ng-bind="patient.idcard_number"></td>
         <td ng-bind="patient.name"></td>
         <td ng-bind="patient.sex === 'pria'? 'Pria':'Wanita'"></td>
         <td ng-if="patient.birthdate" ng-bind="vm.calculateAge(patient.birthdate)"></td>
