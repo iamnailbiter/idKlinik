@@ -9,7 +9,7 @@
         <div class="form-group" show-errors>
           <label class="col-md-2" for="cgs">Kesadaran CGS</label>
           <div class="col-md-2">
-            <input id="cgs" name="cgs" ng-model="vm.medicalrecord.neurologic.cgs" placeholder="CGS" class="form-control input-md" required/>
+            <input id="cgs" name="cgs" ng-model="vm.medicalrecord.neurologic.cgs" placeholder="CGS" class="form-control input-md" />
           </div>
           <div ng-messages="vm.form.medicalrecordForm.neurologic.cgs.$error" role="alert">
             <p class="help-block error-text" ng-message="required">CGS harus diisi</p>
@@ -20,19 +20,19 @@
           <div class="col-md-8">
             <div class="row">
               <div class="col-md-4">
-                <input id="ms.kk" name="ms.kk" ng-model="vm.medicalrecord.neurologic.ms.kk" placeholder="KK" class="form-control input-md" required/>
+                <input id="ms.kk" name="ms.kk" ng-model="vm.medicalrecord.neurologic.ms.kk" placeholder="KK" class="form-control input-md" />
                 <div ng-messages="vm.form.medicalrecordForm.neurologic.ms.kk.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">M.S KK harus diisi</p>
                 </div>
               </div>
               <div class="col-md-4">
-                <input id="ms.br1" name="ms.br2" ng-model="vm.medicalrecord.neurologic.ms.br1" placeholder="BR I" class="form-control input-md" required/>
+                <input id="ms.br1" name="ms.br2" ng-model="vm.medicalrecord.neurologic.ms.br1" placeholder="BR I" class="form-control input-md" />
                 <div ng-messages="vm.form.medicalrecordForm.neurologic.ms.br1.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">M.S BR I harus diisi</p>
                 </div>
               </div>
               <div class="col-md-4">
-                <input id="ms.br2" name="ms.br2" ng-model="vm.medicalrecord.neurologic.ms.br2" placeholder="BR II" class="form-control input-md" required/>
+                <input id="ms.br2" name="ms.br2" ng-model="vm.medicalrecord.neurologic.ms.br2" placeholder="BR II" class="form-control input-md" />
                 <div ng-messages="vm.form.medicalrecordForm.neurologic.ms.br2.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">M.S BR II harus diisi</p>
                 </div>
@@ -43,7 +43,7 @@
         <div class="form-group" show-errors>
           <label class="col-md-2" for="nnc">NN. Cranialis</label>
           <div class="col-md-8">
-            <input id="nnc" name="nnc" ng-model="vm.medicalrecord.neurologic.nnc" placeholder="NN. Cranialis" class="form-control input-md" required/>
+            <input id="nnc" name="nnc" ng-model="vm.medicalrecord.neurologic.nnc" placeholder="NN. Cranialis" class="form-control input-md" />
           </div>
           <div ng-messages="vm.form.medicalrecordForm.neurologic.nnc.$error" role="alert">
             <p class="help-block error-text" ng-message="required">NN. Cranialis harus diisi</p>
@@ -54,19 +54,19 @@
           <div class="col-md-4">
             <div class="row">
               <div class="col-md-3">
-                <input id="motor.a" name="motor.a" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.a" class="form-control input-md" required/>
+                <input id="motor.a" name="motor.a" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.a" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="motor.b" name="motor.b" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.b" class="form-control input-md" required/>
+                <input id="motor.b" name="motor.b" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.b" class="form-control input-md" />
               </div>
             </div>
             <div style="height: 10px"></div>
             <div class="row">
               <div class="col-md-3">
-                <input id="motor.c" name="motor.c" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.c" class="form-control input-md" required/>
+                <input id="motor.c" name="motor.c" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.c" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="motor.d" name="motor.d" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.d" class="form-control input-md" required/>
+                <input id="motor.d" name="motor.d" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motor.d" class="form-control input-md" />
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
         <div class="form-group" show-errors>
           <label class="col-md-2" for="sensory.val">Sensorik</label>
           <div class="col-md-2">
-            <select class="form-control input-md" id="sensory.val" name="sensory.val" ng-model="vm.medicalrecord.neurologic.sensory.val" required>
+            <select class="form-control input-md" id="sensory.val" name="sensory.val" ng-model="vm.medicalrecord.neurologic.sensory.val" >
               <option value="par">PAR</option>
               <option value="hypo">HYPO</option>
               <option value="an">AN</option>
@@ -86,19 +86,19 @@
           <div ng-if="vm.medicalrecord.neurologic.sensory.val=='an'" class="col-md-4">
             <div class="row">
               <div class="col-md-3">
-                <input id="sensory.a" name="sensory.a" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.a" class="form-control input-md" required/>
+                <input id="sensory.a" name="sensory.a" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.a" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="sensory.b" name="sensory.b" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.b" class="form-control input-md" required/>
+                <input id="sensory.b" name="sensory.b" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.b" class="form-control input-md" />
               </div>
             </div>
             <div style="height: 10px"></div>
             <div class="row">
               <div class="col-md-3">
-                <input id="sensory.c" name="sensory.c" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.c" class="form-control input-md" required/>
+                <input id="sensory.c" name="sensory.c" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.c" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="sensory.d" name="sensory.d" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.d" class="form-control input-md" required/>
+                <input id="sensory.d" name="sensory.d" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.sensory.d" class="form-control input-md" />
               </div>
             </div>
           </div>
@@ -111,10 +111,10 @@
           <div class="col-md-4">
             <div class="row">
               <div class="col-md-3">
-                <input id="bpr.left" name="bpr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bpr.left" class="form-control input-md" required/>
+                <input id="bpr.left" name="bpr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bpr.left" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="bpr.right" name="bpr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bpr.right" class="form-control input-md" required/>
+                <input id="bpr.right" name="bpr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bpr.right" class="form-control input-md" />
               </div>
             </div>
           </div>
@@ -127,10 +127,10 @@
           <div class="col-md-4">
             <div class="row">
               <div class="col-md-3">
-                <input id="trr.left" name="trr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trr.left" class="form-control input-md" required/>
+                <input id="trr.left" name="trr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trr.left" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="trr.right" name="trr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trr.right" class="form-control input-md" required/>
+                <input id="trr.right" name="trr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trr.right" class="form-control input-md" />
               </div>
             </div>
           </div>
@@ -143,10 +143,10 @@
           <div class="col-md-4">
             <div class="row">
               <div class="col-md-3">
-                <input id="kpr.left" name="kpr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kpr.left" class="form-control input-md" required/>
+                <input id="kpr.left" name="kpr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kpr.left" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="kpr.right" name="kpr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kpr.right" class="form-control input-md" required/>
+                <input id="kpr.right" name="kpr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kpr.right" class="form-control input-md" />
               </div>
             </div>
           </div>
@@ -159,10 +159,10 @@
           <div class="col-md-4">
             <div class="row">
               <div class="col-md-3">
-                <input id="apr.left" name="apr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.apr.left" class="form-control input-md" required/>
+                <input id="apr.left" name="apr.left" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.apr.left" class="form-control input-md" />
               </div>
               <div class="col-md-3">
-                <input id="apr.right" name="apr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.apr.right" class="form-control input-md" required/>
+                <input id="apr.right" name="apr.right" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.apr.right" class="form-control input-md" />
               </div>
             </div>
           </div>
@@ -176,7 +176,7 @@
             <div class="row">
               <label class="col-md-3" for="rp.ht">HT</label>
               <div class="col-md-3">
-                <select class="form-control input-md"  style="font-size: larger; font-weight: bold;" id="rp.ht" name="rp.ht" ng-model="vm.medicalrecord.neurologic.rp.ht" required>
+                <select class="form-control input-md"  style="font-size: larger; font-weight: bold;" id="rp.ht" name="rp.ht" ng-model="vm.medicalrecord.neurologic.rp.ht" >
                   <option value="-">-</option>
                   <option value="+">+</option>
                 </select>
@@ -186,7 +186,7 @@
             <div class="row">
               <label class="col-md-3" for="rp.bab">BAB</label>
               <div class="col-md-3">
-                <select class="form-control input-md" style="font-size: larger; font-weight: bold;" id="rp.bab" name="rp.bab" ng-model="vm.medicalrecord.neurologic.rp.bab" required>
+                <select class="form-control input-md" style="font-size: larger; font-weight: bold;" id="rp.bab" name="rp.bab" ng-model="vm.medicalrecord.neurologic.rp.bab" >
                   <option value="-">-</option>
                   <option value="+">+</option>
                 </select>
@@ -200,7 +200,7 @@
         <div class="form-group" show-errors>
           <label class="col-md-2" for="autonomous">Otonom</label>
           <div class="col-md-4">
-            <input id="autonomous" name="autonomous" ng-model="vm.medicalrecord.neurologic.autonomous" placeholder="Otonom" class="form-control input-md" required/>
+            <input id="autonomous" name="autonomous" ng-model="vm.medicalrecord.neurologic.autonomous" placeholder="Otonom" class="form-control input-md" />
           </div>
           <div ng-messages="vm.form.medicalrecordForm.neurologic.autonomous.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Otonom harus diisi</p>
@@ -209,7 +209,7 @@
         <div class="form-group" show-errors>
           <label class="col-md-2" for="cv">CV</label>
           <div class="col-md-4">
-            <input id="cv" name="cv" ng-model="vm.medicalrecord.neurologic.cv" placeholder="CV" class="form-control input-md" required/>
+            <input id="cv" name="cv" ng-model="vm.medicalrecord.neurologic.cv" placeholder="CV" class="form-control input-md"/>
           </div>
           <div ng-messages="vm.form.medicalrecordForm.neurologic.cv.$error" role="alert">
             <p class="help-block error-text" ng-message="required">CV harus diisi</p>

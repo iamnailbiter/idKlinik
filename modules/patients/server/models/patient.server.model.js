@@ -48,12 +48,12 @@ var PatientSchema = new Schema({
         type: String,
         default: '',
         trim: true,
-        required: 'Tempat lahir harus diisi'
+        // required: 'Tempat lahir harus diisi'
     },
     birthdate: {
         type: Date,
         default: '',
-        required: 'Tanggal lahir harus diisi'
+        // required: 'Tanggal lahir harus diisi'
     },
     sex:{
         type: String,
@@ -65,13 +65,13 @@ var PatientSchema = new Schema({
         type: String,
         default: '',
         trim: true,
-        required: 'Isi dengan alamat tinggal pasien'
+        // required: 'Isi dengan alamat tinggal pasien'
     },
     domicile: {
         type: String,
         default: '',
         trim: true,
-        required: 'Isi dengan kota domisili pasien'
+        // required: 'Isi dengan kota domisili pasien'
     },
     job: {
         type: String,

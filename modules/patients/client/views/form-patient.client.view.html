@@ -45,7 +45,7 @@
         <div class="form-group" show-errors>
           <label class="col-md-4 control-label" for="birthplace">Tempat Lahir</label>
           <div class="col-md-4">
-            <input id="birthplace" name="birthplace" type="text" ng-model="vm.patient.birthplace" placeholder="Tempat lahir" class="form-control input-md" required>
+            <input id="birthplace" name="birthplace" type="text" ng-model="vm.patient.birthplace" placeholder="Tempat lahir" class="form-control input-md">
           </div>
           <div ng-messages="vm.form.patientForm.birthplace.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Tempat lahir harus diisi</p>
@@ -55,7 +55,7 @@
           <label class="col-md-4 control-label" for="birthdate">Tanggal Lahir</label>
           <div class="col-md-4">
             <p class="input-group">
-              <input id="birthdate" name="birthdate" type="text" class="form-control input-md" uib-datepicker-popup="{{vm.format}}" ng-model="vm.patient.birthdate" is-open="vm.bdPC.opened" max-date="vm.maxDate" datepicker-options="vm.dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="vm.altInputFormats" />
+              <input id="birthdate" name="birthdate" type="text" class="form-control input-md" uib-datepicker-popup="{{vm.format}}" ng-model="vm.patient.birthdate" is-open="vm.bdPC.opened" max-date="vm.maxDate" datepicker-options="vm.dateOptions" date-disabled="disabled(date, mode)" ng-required="false" close-text="Close" alt-input-formats="vm.altInputFormats" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="vm.openbdPC()"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
@@ -80,7 +80,7 @@
         <div class="form-group" show-errors="">
           <label class="col-md-4 control-label" for="address">Alamat</label>
           <div class="col-md-4">
-            <textarea class="form-control" id="address" name="address" data-ng-model="vm.patient.address" placeholder="Alamat pasien" required></textarea>
+            <textarea class="form-control" id="address" name="address" data-ng-model="vm.patient.address" placeholder="Alamat pasien"></textarea>
           </div>
           <div ng-messages="vm.form.patientForm.address.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Isi dengan alamat tinggal pasien</p>
@@ -89,7 +89,7 @@
         <div class="form-group" show-errors="">
           <label class="col-md-4 control-label" for="domicile">Domisili</label>
           <div class="col-md-4">
-            <input id="domicile" name="domicile" type="text" ng-model="vm.patient.domicile" placeholder="Kota Domisili" class="form-control input-md" required >
+            <input id="domicile" name="domicile" type="text" ng-model="vm.patient.domicile" placeholder="Kota Domisili" class="form-control input-md" >
           </div>
           <div ng-messages="vm.form.patientForm.domicile.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Isi dengan kota domisili pasien</p>

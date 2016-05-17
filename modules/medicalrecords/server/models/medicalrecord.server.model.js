@@ -12,8 +12,8 @@ var mongoose = require('mongoose'),
 var AnamnesisSchema = new Schema({
     complaint: {
         type: String,
-        default: '',
-        required: 'Isi dengan keluhan utama yang dirasakan oleh pasien'
+        default: ''
+        // required: 'Isi dengan keluhan utama yang dirasakan oleh pasien'
     },
     hocd: {                             // History of Current Disease
         type: String,
