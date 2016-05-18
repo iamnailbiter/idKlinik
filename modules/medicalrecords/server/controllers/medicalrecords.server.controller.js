@@ -112,7 +112,7 @@ exports.update = function (req, res) {
                     'updated':Date.now(),
                     'doctor' : req.user,
                     'neurologic.cgs': req.body.neurologic.cgs,
-                    'neurologic.ms.kk': req.body.neurologic.ms.kk,
+                    'neurologic.ms.kk': req.body.neurologic.mskk,
                     'neurologic.ms.br1': req.body.neurologic.ms.br1,
                     'neurologic.ms.br2': req.body.neurologic.ms.br2,
                     'neurologic.nnc': req.body.neurologic.nnc,
