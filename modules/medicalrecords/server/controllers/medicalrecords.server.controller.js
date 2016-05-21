@@ -56,8 +56,8 @@ exports.update = function (req, res) {
             {
                 $set: {
                     'updated':Date.now(),
-                    'medic' : req.body.medic?req.body.medic:req.user
-                    // 'anamnesis.complaint': req.body.anamnesis.complaint,
+                    'medic' : req.body.medic?req.body.medic:req.user,
+                    'anamnesis.complaint': req.body.anamnesis.complaint
                     // 'anamnesis.hocd': req.body.anamnesis.hocd,
                     // 'anamnesis.bpmup': req.body.anamnesis.bpmup,
                     // 'anamnesis.bpmdown': req.body.anamnesis.bpmdown,
