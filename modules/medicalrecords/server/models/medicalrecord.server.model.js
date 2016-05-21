@@ -19,16 +19,14 @@ var AnamnesisSchema = new Schema({
         type: String,
         default: ''
     },
-    bpm: {                              // Blood Pressure Monitor
-        up: {
+    bpmup: {
             type: Number,
             default: ''
         },
-        down: {
+    bpmdown: {
             type: Number,
             default: ''
-        }
-    },
+        },
     inhalation: {
         type: Number,
         default: ''
