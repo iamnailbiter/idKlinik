@@ -116,7 +116,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-if="vm.medicalrecords" ng-repeat="medicalrecord in vm.pagedItems |orderBy:'-created'">
+            <tr ng-if="vm.medicalrecords" ng-repeat="medicalrecord in vm.pagedItems | filter:{anamnesis:{complaint:''}} |orderBy:'-created'">
               <td ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
               <td ng-bind="medicalrecord.created | date:'H:m' "></td>
               <td ng-bind="medicalrecord.anamnesis.complaint" class="small"></td>
