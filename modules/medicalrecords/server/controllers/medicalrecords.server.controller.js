@@ -61,9 +61,9 @@ exports.update = function (req, res) {
                     'anamnesis.hocd': req.body.anamnesis.hocd,
                     'anamnesis.bpmup': req.body.anamnesis.bpmup,
                     'anamnesis.bpmdown': req.body.anamnesis.bpmdown,
-                    'anamnesis.inhalation': req.body.anamnesis.inhalation
-                    // 'anamnesis.pulse': req.body.anamnesis.pulse,
-                    // 'anamnesis.temperature': req.body.anamnesis.temperature,
+                    'anamnesis.inhalation': req.body.anamnesis.inhalation,
+                    'anamnesis.pulse': req.body.anamnesis.pulse,
+                    'anamnesis.temperature': req.body.anamnesis.temperature
                     // 'anamnesis.bodyheight': req.body.anamnesis.bodyheight,
                     // 'anamnesis.bodyweight': req.body.anamnesis.bodyweight
                 }
