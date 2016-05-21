@@ -56,16 +56,16 @@ exports.update = function (req, res) {
             {
                 $set: {
                     'updated':Date.now(),
-                    'medic' : req.body.medic?req.body.medic:req.user,
-                    'anamnesis.complaint': req.body.anamnesis.complaint,
-                    'anamnesis.hocd': req.body.anamnesis.hocd,
+                    'medic' : req.body.medic?req.body.medic:req.user
+                    // 'anamnesis.complaint': req.body.anamnesis.complaint,
+                    // 'anamnesis.hocd': req.body.anamnesis.hocd,
                     // 'anamnesis.bpmup': req.body.anamnesis.bpmup,
                     // 'anamnesis.bpmdown': req.body.anamnesis.bpmdown,
-                    'anamnesis.inhalation': req.body.anamnesis.inhalation,
-                    'anamnesis.pulse': req.body.anamnesis.pulse,
-                    'anamnesis.temperature': req.body.anamnesis.temperature,
-                    'anamnesis.bodyheight': req.body.anamnesis.bodyheight,
-                    'anamnesis.bodyweight': req.body.anamnesis.bodyweight
+                    // 'anamnesis.inhalation': req.body.anamnesis.inhalation,
+                    // 'anamnesis.pulse': req.body.anamnesis.pulse,
+                    // 'anamnesis.temperature': req.body.anamnesis.temperature,
+                    // 'anamnesis.bodyheight': req.body.anamnesis.bodyheight,
+                    // 'anamnesis.bodyweight': req.body.anamnesis.bodyweight
                 }
             },
             function(err) {
