@@ -25,16 +25,16 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-2 col-md-offset-2" for="bpm.up">Tensi</label>
+          <label class="col-md-2 col-md-offset-2" for="bpmup">Tensi</label>
           <div class="col-md-5">
             <div class="input-group col-md-8">
-            <input id="bpm.up" name="bpm.up" ng-model="vm.medicalrecord.anamnesis.bpm.up" type="number" class="form-control input-md"/>
+            <input id="bpmup" name="bpmup" ng-model="vm.medicalrecord.anamnesis.bpmup" type="number" class="form-control input-md"/>
             <span class="input-group-addon">/</span>
-            <input id="bpm.down" name="bpm.down" ng-model="vm.medicalrecord.anamnesis.bpm.down" type="number" class="form-control input-md"/>
+            <input id="bpmdown" name="bpmdown" ng-model="vm.medicalrecord.anamnesis.bpmdown" type="number" class="form-control input-md"/>
             <span class="input-group-addon">MmHg</span>
             </div>
           </div>
-          <div ng-messages="vm.form.medicalrecordForm.anamnesis.bpm.$error" role="alert">
+          <div ng-messages="vm.form.medicalrecordForm.anamnesis.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Tensi</p>
           </div>
         </div>

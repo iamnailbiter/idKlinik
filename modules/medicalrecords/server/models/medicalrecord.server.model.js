@@ -85,64 +85,58 @@ var NeurologicSchema = new Schema({
         type: String,
         default: ''
     },
-    ms: {
-        kk: {       // Meningeal Sign KK
+    mskk: {       // Meningeal Sign KK
+        type: String,
+        default: ''
+    },
+    msbr1: {      // Meningeal Sign BR I
             type: String,
             default: ''
-        },
-        br1: {      // Meningeal Sign BR I
+    },
+    msbr2: {      // Meningeal Sign BR II
             type: String,
             default: ''
-        },
-        br2: {      // Meningeal Sign BR II
-            type: String,
-            default: ''
-        }
     },
     nnc: {  // NN Cranialis
         type: String,
         default: ''
     },
-    motor: { // Saraf Motorik
-        a: {
+    motora: {
             type: Number,
             default: ''
-        },
-        b: {
-            type: Number,
-            default: ''
-        },
-        c: {
-            type: Number,
-            default: ''
-        },
-        d: {
-            type: Number,
-            default: ''
-        }
     },
-    sensory: {          // Saraf Sensorik
-        val: {
+    motorb: {
+            type: Number,
+            default: ''
+    },
+    motorc: {
+            type: Number,
+            default: ''
+        }, 
+    motord: {
+            type: Number,
+            default: ''
+    },
+    sensoryval: {
             type: String,
             default: ''
-        },
-        a: {
-            type: Number,
-            default: ''
-        },
-        b: {
-            type: Number,
-            default: ''
-        },
-        c: {
-            type: Number,
-            default: ''
-        },
-        d: {
-            type: Number,
-            default: ''
-        }
     },
+    sensorya: {
+            type: Number,
+            default: ''
+    },
+    sensoryb: {
+            type: Number,
+            default: ''
+    },
+    sensoryc: {
+            type: Number,
+            default: ''
+    },
+    sensoryd: {
+            type: Number,
+            default: ''
+        },
     // rf: {
     //     a: {
     //         type: Number,
@@ -161,55 +155,45 @@ var NeurologicSchema = new Schema({
     //         default: ''
     //     }
     // },
-    bpr: {
-        left: {
+    bprleft: {
             type: Number,
             default: ''
         },
-        right: {
+    bprright: {
             type: Number,
             default: ''
-        }
     },
-    trr: {
-        left: {
+    trrleft: {
             type: Number,
             default: ''
-        },
-        right: {
-            type: Number,
-            default: ''
-        }
     },
-    kpr: {
-        left: {
+    trrright: {
             type: Number,
             default: ''
-        },
-        right: {
-            type: Number,
-            default: ''
-        }
     },
-    apr: {
-        left: {
+    kprleft: {
             type: Number,
             default: ''
-        },
-        right: {
-            type: Number,
-            default: ''
-        }
     },
-    rp: {
-        ht: {
+    kprright: {
+            type: Number,
+            default: ''
+    },
+    aprleft: {
+            type: Number,
+            default: ''
+    },
+    aprright: {
+            type: Number,
+            default: ''
+    },
+    rpht: {
             type: String,
             default: ''
-        },
-        bab: {
+    },
+    rpbab: {
             type: String,
             default: ''
-        }
     },
     autonomous: {
         type: String,
