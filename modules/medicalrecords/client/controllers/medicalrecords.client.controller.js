@@ -77,7 +77,7 @@
             }
 
             function errorCallback(res) {
-                vm.error = res.data.message;
+                vm.error = res.data.message?res.data.message:'';
             }
         }
     }
