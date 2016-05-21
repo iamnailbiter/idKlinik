@@ -59,13 +59,13 @@ exports.update = function (req, res) {
                     'medic' : req.body.medic?req.body.medic:req.user,
                     'anamnesis.complaint': req.body.anamnesis.complaint,
                     'anamnesis.hocd': req.body.anamnesis.hocd,
-                    'anamnesis.bpmup': req.body.anamnesis.bpmup,
-                    'anamnesis.bpmdown': req.body.anamnesis.bpmdown,
-                    'anamnesis.inhalation': req.body.anamnesis.inhalation,
-                    'anamnesis.pulse': req.body.anamnesis.pulse,
-                    'anamnesis.temperature': req.body.anamnesis.temperature,
-                    'anamnesis.bodyheight': req.body.anamnesis.bodyheight,
-                    'anamnesis.bodyweight': req.body.anamnesis.bodyweight
+                    'anamnesis.bpmup': req.body.anamnesis.bpmup?req.body.anamnesis.bpmup:0,
+                    'anamnesis.bpmdown': req.body.anamnesis.bpmdown?req.body.anamnesis.bpmdown:0,
+                    'anamnesis.inhalation': req.body.anamnesis.inhalation?req.body.anamnesis.inhalation:0,
+                    'anamnesis.pulse': req.body.anamnesis.pulse?req.body.anamnesis.pulse:0,
+                    'anamnesis.temperature': req.body.anamnesis.temperature?req.body.anamnesis.temperature:0,
+                    'anamnesis.bodyheight': req.body.anamnesis.bodyheight?req.body.anamnesis.bodyheight:0,
+                    'anamnesis.bodyweight': req.body.anamnesis.bodyweight?req.body.anamnesis.bodyweight:0
                 }
             },
             function(err) {
