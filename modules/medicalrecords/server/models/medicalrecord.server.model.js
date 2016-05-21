@@ -20,13 +20,13 @@ var AnamnesisSchema = new Schema({
         default: ''
     },
     bpmup: {
-            type: Number,
-            default: ''
-        },
+        type: Number,
+        default: ''
+    },
     bpmdown: {
-            type: Number,
-            default: ''
-        },
+        type: Number,
+        default: ''
+    },
     inhalation: {
         type: Number,
         default: ''
