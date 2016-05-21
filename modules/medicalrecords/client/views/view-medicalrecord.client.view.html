@@ -120,7 +120,7 @@
               <td ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
               <td ng-bind="medicalrecord.created | date:'H:m' "></td>
               <td ng-bind="medicalrecord.anamnesis.complaint" class="small"></td>
-              <td ng-bind="medicalrecord.anamnesis.bpm.up+' / '+ vm.medicalrecord.anamnesis.bpm.down+' MmHg'" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.bpmup+' / '+ vm.medicalrecord.anamnesis.bpmdown+' MmHg'" class="small"></td>
               <td ng-bind="medicalrecord.anamnesis.inhalation+' /Menit'" class="small"></td>
               <td ng-bind="medicalrecord.anamnesis.pulse+' /Menit'" class="small"></td>
               <td ng-bind="medicalrecord.anamnesis.temperature+' ºC'" class="small"></td>
@@ -198,11 +198,11 @@
               <div class="row">
                 <label class="col-md-2 text-right"><strong>M.S</strong></label>
                 <label class="col-md-1 text-right"><strong>KK</strong></label>
-                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.ms.kk"></label>
+                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.mskk"></label>
                 <label class="col-md-2 text-right"><strong>BR I</strong></label>
-                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.ms.br1"></label>
+                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.msbr1"></label>
                 <label class="col-md-2 text-right"><strong>BR II</strong></label>
-                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.ms.br2"></label>
+                <label class="col-md-1" ng-bind="vm.medicalrecord.neurologic.msbr2"></label>
               </div>
               <div class="row">
                 <label class="col-md-3 text-right"><strong>NN. Cranialis</strong></label>
@@ -212,22 +212,22 @@
                 <label class="col-md-3 text-right"><strong>Motorik</strong></label>
                 <table class="col-md-2 text-center" border="1">
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.a"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.b"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motora"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motorb"></td>
                   </tr>
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.c"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motor.d"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motorc"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.motord"></td>
                   </tr>
                 </table>
               </div>
               <div class="row">
                 <label class="col-md-3 text-right"><strong>Sensorik</strong></label>
-                <label class="col-md-3" ng-bind="vm.medicalrecord.neurologic.sensory.val.toUpperCase()"></label>
+                <label class="col-md-3" ng-bind="vm.medicalrecord.neurologic.sensoryval.toUpperCase()"></label>
                 <table ng-show="vm.medicalrecord.neurologic.sensory.a" class="col-md-2 text-center" border="1">
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.a"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.b"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensorya"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensoryb"></td>
                   </tr>
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.c"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensory.d"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensoryc"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.sensoryd"></td>
                   </tr>
                 </table>
               </div>
@@ -235,7 +235,7 @@
                 <label class="col-md-3 text-right"><strong>BPR</strong></label>
                 <table class="col-md-2 text-center" border="1">
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.bpr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.bpr.right"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.bprleft"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.bprright"></td>
                   </tr>
                 </table>
               </div>
@@ -243,7 +243,7 @@
                 <label class="col-md-3 text-right"><strong>TRR</strong></label>
                 <table class="col-md-2 text-center" border="1">
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.trr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.trr.right"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.trrleft"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.trrright"></td>
                   </tr>
                 </table>
               </div>
@@ -251,7 +251,7 @@
                 <label class="col-md-3 text-right"><strong>KPR</strong></label>
                 <table class="col-md-2 text-center" border="1">
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.kpr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.kpr.right"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.kprleft"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.kprright"></td>
                   </tr>
                 </table>
               </div>
@@ -259,18 +259,18 @@
                 <label class="col-md-3 text-right"><strong>APR</strong></label>
                 <table class="col-md-2 text-center" border="1">
                   <tr>
-                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.apr.left"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.apr.right"></td>
+                    <td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.aprleft"></td><td class="col-md-6" ng-bind="vm.medicalrecord.neurologic.aprright"></td>
                   </tr>
                 </table>
               </div>
               <div class="row">
                 <label class="col-md-3 text-right"><strong>RP</strong></label>
                 <label class="col-md-1 text-center">HT</label>
-                <label class="col-md-1 text-center"><strong>{{vm.medicalrecord.neurologic.rp.ht}}</strong></label>
+                <label class="col-md-1 text-center"><strong>{{vm.medicalrecord.neurologic.rpht}}</strong></label>
               </div>
               <div class="row">
                 <label class="col-md-offset-3 col-md-1 text-center">BAB</label>
-                <label class="col-md-1 text-center"><strong>{{vm.medicalrecord.neurologic.rp.bab}}</strong></label>
+                <label class="col-md-1 text-center"><strong>{{vm.medicalrecord.neurologic.rpbab}}</strong></label>
               </div>
 
               <div class="row">
