@@ -63,9 +63,9 @@ exports.update = function (req, res) {
                     'anamnesis.bpmdown': req.body.anamnesis.bpmdown,
                     'anamnesis.inhalation': req.body.anamnesis.inhalation,
                     'anamnesis.pulse': req.body.anamnesis.pulse,
-                    'anamnesis.temperature': req.body.anamnesis.temperature
-                    // 'anamnesis.bodyheight': req.body.anamnesis.bodyheight,
-                    // 'anamnesis.bodyweight': req.body.anamnesis.bodyweight
+                    'anamnesis.temperature': req.body.anamnesis.temperature,
+                    'anamnesis.bodyheight': req.body.anamnesis.bodyheight,
+                    'anamnesis.bodyweight': req.body.anamnesis.bodyweight
                 }
             },
             function(err) {
