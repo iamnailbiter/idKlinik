@@ -90,7 +90,8 @@ exports.update = function (req, res) {
                     'internus.abd': req.body.internus.abd,
                     'internus.pulmo': req.body.internus.pulmo,
                     'internus.hepar': req.body.internus.hepar,
-                    'internus.lien': req.body.internus.lien
+                    'internus.lien': req.body.internus.lien,
+                    'internus.lab': req.body.internus.lab
                 }
             },
             function(err) {

@@ -51,6 +51,15 @@
             <p class="help-block error-text" ng-message="required">Lien harus diisi</p>
           </div>
         </div>
+        <div class="form-group" show-errors>
+          <label class="col-md-2 col-md-offset-2" for="lab">Hasil Lab</label>
+          <div class="col-md-4">
+            <textarea id="lab" name="lab" ng-model="vm.medicalrecord.internus.lab" placeholder="Hasil Lab" class="form-control input-md"></textarea>
+          </div>
+          <div ng-messages="vm.form.medicalrecordForm.internus.lab.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Hasil Lab</p>
+          </div>
+        </div>
         <div class="form-group">
           <label class="col-md-4 control-label"></label>
           <div class="col-md-8">

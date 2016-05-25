@@ -72,6 +72,10 @@ var InternusSchema = new Schema({
     lien: {
         type: String,
         default: ''
+    },
+    lab: {
+        type: String,
+        default: ''
     }
 });
 
