@@ -120,13 +120,14 @@
               <td ng-bind="medicalrecord.created | date:'d MMM yy' "></td>
               <td ng-bind="medicalrecord.created | date:'H:m' "></td>
               <td ng-bind="medicalrecord.anamnesis.complaint" class="small"></td>
-              <td ng-bind="medicalrecord.anamnesis.bpmup+' / '+ vm.medicalrecord.anamnesis.bpmdown+' MmHg'" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.bpmup+' / '+medicalrecord.anamnesis.bpmdown+' MmHg'" class="small"></td>
               <td ng-bind="medicalrecord.anamnesis.inhalation+' /Menit'" class="small"></td>
               <td ng-bind="medicalrecord.anamnesis.pulse+' /Menit'" class="small"></td>
               <td ng-bind="medicalrecord.anamnesis.temperature+' ºC'" class="small"></td>
-              <td ng-bind="medicalrecord.anamnesis.bodyheight+' Cm / '+medicalrecord.anamnesis.bodyheight+' Kg'" class="small"></td>
+              <td ng-bind="medicalrecord.anamnesis.bodyheight+' Cm / '+medicalrecord.anamnesis.bodyweight+' Kg'" class="small"></td>
               <td>
-                <div ng-if="vm.medicalrecord._id === medicalrecord._id" class="btn-group">
+                <!--<div ng-if="vm.medicalrecord._id === medicalrecord._id" class="btn-group">-->
+                <div class="btn-group">
                   <a class="btn btn-sm btn-info" ui-sref="medicalrecords.anamnesis({medicalrecordId:medicalrecord._id})">
                     <i class="glyphicon glyphicon-pencil"></i>
                   </a>
@@ -405,7 +406,8 @@
               <td ng-bind="medicalrecord.soap.assessment" class="small"></td>
               <td ng-bind="medicalrecord.soap.plan" class="small"></td>
               <td>
-                <div ng-if="vm.medicalrecord._id === medicalrecord._id" class="btn-group">
+                <!--<div ng-if="vm.medicalrecord._id === medicalrecord._id" class="btn-group">-->
+                <div class="btn-group">
                   <a class="btn btn-sm btn-info" ui-sref="medicalrecords.soap({medicalrecordId:medicalrecord._id})">
                     <i class="glyphicon glyphicon-pencil"></i>
                   </a>
