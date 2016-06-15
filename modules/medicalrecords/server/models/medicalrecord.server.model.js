@@ -103,21 +103,25 @@ var NeurologicSchema = new Schema({
         type: String,
         default: ''
     },
-    motora: {
-            type: Number,
-            default: ''
-    },
-    motorb: {
-            type: Number,
-            default: ''
-    },
-    motorc: {
-            type: Number,
-            default: ''
-        }, 
-    motord: {
-            type: Number,
-            default: ''
+    // motora: {
+    //         type: Number,
+    //         default: ''
+    // },
+    // motorb: {
+    //         type: Number,
+    //         default: ''
+    // },
+    // motorc: {
+    //         type: Number,
+    //         default: ''
+    //     },
+    // motord: {
+    //         type: Number,
+    //         default: ''
+    // },
+    motor: {
+        type: String,
+        default: ''
     },
     sensoryval: {
             type: String,
@@ -157,45 +161,65 @@ var NeurologicSchema = new Schema({
     //         default: ''
     //     }
     // },
-    bprleft: {
-            type: Number,
-            default: ''
-        },
-    bprright: {
-            type: Number,
-            default: ''
+    // bprleft: {
+    //         type: Number,
+    //         default: ''
+    //     },
+    // bprright: {
+    //         type: Number,
+    //         default: ''
+    // },
+    bpr: {
+        type: String,
+        default: ''
     },
-    trrleft: {
-            type: Number,
-            default: ''
+    // trrleft: {
+    //         type: Number,
+    //         default: ''
+    // },
+    // trrright: {
+    //         type: Number,
+    //         default: ''
+    // },
+    trr: {
+        type: String,
+        default: ''
     },
-    trrright: {
-            type: Number,
-            default: ''
+    // kprleft: {
+    //         type: Number,
+    //         default: ''
+    // },
+    // kprright: {
+    //         type: Number,
+    //         default: ''
+    // },
+    kpr: {
+        type: String,
+        default: ''
     },
-    kprleft: {
-            type: Number,
-            default: ''
+    // aprleft: {
+    //         type: Number,
+    //         default: ''
+    // },
+    // aprright: {
+    //         type: Number,
+    //         default: ''
+    // },
+    apr: {
+        type: String,
+        default: ''
     },
-    kprright: {
-            type: Number,
-            default: ''
-    },
-    aprleft: {
-            type: Number,
-            default: ''
-    },
-    aprright: {
-            type: Number,
-            default: ''
-    },
-    rpht: {
-            type: String,
-            default: ''
-    },
-    rpbab: {
-            type: String,
-            default: ''
+    // rpht: {
+    //         type: String,
+    //         default: ''
+    // },
+    // rpbab: {
+    //         type: String,
+    //         default: ''
+    // },
+    ht: {
+        type: String,
+        default: ''
     },
     autonomous: {
         type: String,

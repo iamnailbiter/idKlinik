@@ -50,25 +50,28 @@
           <!--</div>-->
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-2" for="motora">Motorik</label>
+          <label class="col-md-2" for="motor">Motorik</label>
+          <!--<div class="col-md-4">-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="motora" name="motora" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motora" class="form-control input-md" />-->
+              <!--</div>-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="motorb" name="motorb" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motorb" class="form-control input-md" />-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div style="height: 10px"></div>-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="motorc" name="motorc" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motorc" class="form-control input-md" />-->
+              <!--</div>-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="motord" name="motord" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motord" class="form-control input-md" />-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-3">
-                <input id="motora" name="motora" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motora" class="form-control input-md" />
-              </div>
-              <div class="col-md-3">
-                <input id="motorb" name="motorb" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motorb" class="form-control input-md" />
-              </div>
-            </div>
-            <div style="height: 10px"></div>
-            <div class="row">
-              <div class="col-md-3">
-                <input id="motorc" name="motorc" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motorc" class="form-control input-md" />
-              </div>
-              <div class="col-md-3">
-                <input id="motord" name="motord" type="number" min="-5" max="5" ng-model="vm.medicalrecord.neurologic.motord" class="form-control input-md" />
-              </div>
-            </div>
+            <textarea id="motor" name="motor" ng-model="vm.medicalrecord.neurologic.motor" placeholder="Motor" class="form-control input-md" ></textarea>
           </div>
           <!--<div ng-messages="vm.form.medicalrecordForm.neurologic.motor.$error" role="alert">-->
             <!--<p class="help-block error-text" ng-message="required">Motorik harus diisi</p>-->
@@ -107,92 +110,111 @@
           <!--</div>-->
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-2" for="bprleft">BPR</label>
+          <label class="col-md-2" for="bpr">BPR</label>
+          <!--<div class="col-md-4">-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="bprleft" name="bprleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bprleft" class="form-control input-md" />-->
+              <!--</div>-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="bprright" name="bprright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bprright" class="form-control input-md" />-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-3">
-                <input id="bprleft" name="bprleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bprleft" class="form-control input-md" />
-              </div>
-              <div class="col-md-3">
-                <input id="bprright" name="bprright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.bprright" class="form-control input-md" />
-              </div>
-            </div>
+            <textarea id="bpr" name="bpr" ng-model="vm.medicalrecord.neurologic.bpr" placeholder="BPR" class="form-control input-md" ></textarea>
           </div>
           <!--<div ng-messages="vm.form.medicalrecordForm.neurologic.bpr.$error" role="alert">-->
             <!--<p class="help-block error-text" ng-message="required">BPR harus diisi</p>-->
           <!--</div>-->
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-2" for="trrleft">TRR</label>
+          <label class="col-md-2" for="trr">TRR</label>
+          <!--<div class="col-md-4">-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="trrleft" name="trrleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trrleft" class="form-control input-md" />-->
+              <!--</div>-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="trrright" name="trrright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trrright" class="form-control input-md" />-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-3">
-                <input id="trrleft" name="trrleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trrleft" class="form-control input-md" />
-              </div>
-              <div class="col-md-3">
-                <input id="trrright" name="trrright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.trrright" class="form-control input-md" />
-              </div>
-            </div>
+            <textarea id="trr" name="trr" ng-model="vm.medicalrecord.neurologic.trr" placeholder="TRR" class="form-control input-md" ></textarea>
           </div>
+
           <!--<div ng-messages="vm.form.medicalrecordForm.neurologic.trr.$error" role="alert">-->
             <!--<p class="help-block error-text" ng-message="required">TRR harus diisi</p>-->
           <!--</div>-->
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-2" for="kprleft">KPR</label>
+          <label class="col-md-2" for="kpr">KPR</label>
+          <!--<div class="col-md-4">-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="kprleft" name="kprleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kprleft" class="form-control input-md" />-->
+              <!--</div>-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="kprright" name="kprright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kprright" class="form-control input-md" />-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-3">
-                <input id="kprleft" name="kprleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kprleft" class="form-control input-md" />
-              </div>
-              <div class="col-md-3">
-                <input id="kprright" name="kprright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.kprright" class="form-control input-md" />
-              </div>
-            </div>
+            <textarea id="kpr" name="kpr" ng-model="vm.medicalrecord.neurologic.kpr" placeholder="KPR" class="form-control input-md" ></textarea>
           </div>
+
           <!--<div ng-messages="vm.form.medicalrecordForm.neurologic.kpr.$error" role="alert">-->
             <!--<p class="help-block error-text" ng-message="required">KPR harus diisi</p>-->
           <!--</div>-->
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-2" for="aprleft">APR</label>
+          <label class="col-md-2" for="apr">APR</label>
+          <!--<div class="col-md-4">-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="aprleft" name="aprleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.aprleft" class="form-control input-md" />-->
+              <!--</div>-->
+              <!--<div class="col-md-3">-->
+                <!--<input id="aprright" name="aprright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.aprright" class="form-control input-md" />-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-3">
-                <input id="aprleft" name="aprleft" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.aprleft" class="form-control input-md" />
-              </div>
-              <div class="col-md-3">
-                <input id="aprright" name="aprright" type="number" min="1" max="5" ng-model="vm.medicalrecord.neurologic.aprright" class="form-control input-md" />
-              </div>
-            </div>
+            <textarea id="apr" name="apr" ng-model="vm.medicalrecord.neurologic.apr" placeholder="APR" class="form-control input-md" ></textarea>
           </div>
+
           <!--<div ng-messages="vm.form.medicalrecordForm.neurologic.apr.$error" role="alert">-->
             <!--<p class="help-block error-text" ng-message="required">APR harus diisi</p>-->
           <!--</div>-->
         </div>
         <div class="form-group" show-errors>
-          <label class="col-md-2" for="rpht">RP</label>
+          <label class="col-md-2" for="rpht">HT</label>
+          <!--<div class="col-md-4">-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3" for="rpht">HT</label>-->
+              <!--<div class="col-md-3">-->
+                <!--<select class="form-control input-md"  style="font-size: larger; font-weight: bold;" id="rpht" name="rpht" ng-model="vm.medicalrecord.neurologic.rpht" >-->
+                  <!--<option value="-">-</option>-->
+                  <!--<option value="+">+</option>-->
+                <!--</select>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div style="height: 10px"></div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3" for="rpbab">BAB</label>-->
+              <!--<div class="col-md-3">-->
+                <!--<select class="form-control input-md" style="font-size: larger; font-weight: bold;" id="rpbab" name="rpbab" ng-model="vm.medicalrecord.neurologic.rpbab" >-->
+                  <!--<option value="-">-</option>-->
+                  <!--<option value="+">+</option>-->
+                <!--</select>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-md-4">
-            <div class="row">
-              <label class="col-md-3" for="rpht">HT</label>
-              <div class="col-md-3">
-                <select class="form-control input-md"  style="font-size: larger; font-weight: bold;" id="rpht" name="rpht" ng-model="vm.medicalrecord.neurologic.rpht" >
-                  <option value="-">-</option>
-                  <option value="+">+</option>
-                </select>
-              </div>
-            </div>
-            <div style="height: 10px"></div>
-            <div class="row">
-              <label class="col-md-3" for="rpbab">BAB</label>
-              <div class="col-md-3">
-                <select class="form-control input-md" style="font-size: larger; font-weight: bold;" id="rpbab" name="rpbab" ng-model="vm.medicalrecord.neurologic.rpbab" >
-                  <option value="-">-</option>
-                  <option value="+">+</option>
-                </select>
-              </div>
-            </div>
+            <textarea id="ht" name="ht" ng-model="vm.medicalrecord.neurologic.ht" placeholder="HT" class="form-control input-md" ></textarea>
           </div>
+
           <!--<div ng-messages="vm.form.medicalrecordForm.neurologic.rp.$error" role="alert">-->
             <!--<p class="help-block error-text" ng-message="required">RF harus diisi</p>-->
           <!--</div>-->
