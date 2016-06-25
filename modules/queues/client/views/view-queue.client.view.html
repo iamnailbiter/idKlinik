@@ -1,6 +1,6 @@
 <section>
   <div class="page-header">
-    <h1 class="text-center">{{ vm.state.current.name == 'queues.call' ? 'PANGGIL ANTRIAN' : 'CETAK ANTRIAN' }}</h1>
+    <h1 class="text-center">{{ vm.state.current.name == 'queues.print' ? 'CETAK ANTRIAN' : 'PANGGIL ANTRIAN' }}</h1>
   </div>
   <div class="col-md-12 text-center" print-section>
     <p>
@@ -18,5 +18,6 @@
     <button class="btn btn-danger" ui-sref="queues.list"><i class="glyphicon glyphicon-arrow-left"> Kembali</i></button>
     <button ng-if="vm.state.current.name == 'queues.print'" class="btn btn-primary" print-btn><i class="glyphicon glyphicon-print"></i> Cetak</button>
     <button ng-if="vm.state.current.name == 'queues.call'+vm.queue.directionTarget && !vm.queue.directionHandled" class="btn btn-primary" ng-click="vm.handled()"><i class="glyphicon glyphicon-bell"></i> Tangani Pasien</button>
+    <button ng-if="vm.state.current.name != 'queues.print'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
   </div>
 </section>
