@@ -81,7 +81,7 @@
 
         // Remove existing Queue
         function remove() {
-            if (confirm('Are you sure you want to delete?')) {
+            if (confirm('Apakah anda yakin ingin membuang antrian pasien?')) {
                 vm.queue.$remove($state.go('queues.list'));
             }
         }

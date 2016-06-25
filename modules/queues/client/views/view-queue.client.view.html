@@ -18,6 +18,6 @@
     <button class="btn btn-danger" ui-sref="queues.list"><i class="glyphicon glyphicon-arrow-left"> Kembali</i></button>
     <button ng-if="vm.state.current.name == 'queues.print'" class="btn btn-primary" print-btn><i class="glyphicon glyphicon-print"></i> Cetak</button>
     <button ng-if="vm.state.current.name == 'queues.call'+vm.queue.directionTarget && !vm.queue.directionHandled" class="btn btn-primary" ng-click="vm.handled()"><i class="glyphicon glyphicon-bell"></i> Tangani Pasien</button>
-    <button ng-if="vm.state.current.name != 'queues.print'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
+    <button ng-if="vm.state.current.name != 'queues.print'" class="btn btn-danger" ng-click="vm.remove()"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
   </div>
 </section>
