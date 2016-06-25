@@ -75,7 +75,19 @@
                     queueResolve: getQueue
                 },
                 data: {
-                    roles: ['doctor', 'admin']
+                    roles: ['doctor', 'medic', 'neurologist', 'admin']
+                }
+            })
+            .state('queues.callnrl', {
+                url: '/:queueId/:queueDirectionId/callnrl',
+                templateUrl: 'modules/queues/client/views/view-queue.client.view.html',
+                controller: 'QueuesController',
+                controllerAs: 'vm',
+                resolve: {
+                    queueResolve: getQueue
+                },
+                data: {
+                    roles: ['doctor', 'medic', 'neurologist', 'admin']
                 }
             });
     }
